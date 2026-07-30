@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Heart, Activity, Radio, Volume2, HelpCircle, Check, ArrowRight } from "lucide-react";
+import { Heart, Activity, Radio, Volume2, ArrowRight, Sparkles } from "lucide-react";
+import ProgramPageTemplate from "./ProgramPageTemplate";
+import { ALL_PROGRAMS } from "../data/programsData";
 
 export default function NlpProgram() {
+  const program = ALL_PROGRAMS[3]; // NLP
+
   const [userNegativeInput, setUserNegativeInput] = useState("");
   const [isReprogramming, setIsReprogramming] = useState(false);
   const [reprogrammedResult, setReprogrammedResult] = useState<{
@@ -22,7 +26,6 @@ export default function NlpProgram() {
     setIsReprogramming(true);
     setReprogrammedResult(null);
 
-    // Simulate subconscious rewiring algorithm (Vedic NLP)
     setTimeout(() => {
       const inputs = userNegativeInput.toLowerCase();
       let customResult = {
@@ -61,7 +64,7 @@ export default function NlpProgram() {
 
       setReprogrammedResult(customResult);
       setIsReprogramming(false);
-    }, 1500);
+    }, 1200);
   };
 
   const clearAnchor = () => {
@@ -70,218 +73,123 @@ export default function NlpProgram() {
     setSoundFrequencyActive(false);
   };
 
-  return (
-    <div className="space-y-12">
-      {/* Editorial Page Hero */}
-      <div className="relative bg-gradient-to-r from-sage-950 via-[#2d3a2e] to-sage-900 text-white rounded-3xl p-8 lg:p-12 overflow-hidden shadow-sm border border-emerald-900/30">
-        <div className="absolute right-0 bottom-0 top-0 w-1/3 opacity-[0.03] pointer-events-none">
-          <svg className="w-full h-full text-white" viewBox="0 0 100 100" preserveAspectRatio="none">
-            <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" strokeWidth="0.5" />
-          </svg>
-        </div>
-        
-        <div className="relative z-10 max-w-2xl space-y-4">
-          <span className="text-xs font-mono uppercase tracking-[0.25em] text-gold-300 block">
-            subconscious neuro-linguistic rewiring
-          </span>
-          <h1 className="text-3xl lg:text-4xl font-serif font-bold tracking-tight">
-            Neuro-Linguistic Sanskrit Program (NLP)
-          </h1>
-          <p className="text-sage-200 text-xs md:text-sm leading-relaxed font-light">
-            Sanskrit is a vibrational language. When you articulate specific phonemes, they stimulate cranial nerves to physically dismantle negative mental tracks. Our NLP program pairs modern cognitive reframing with ancient sound templates to instantly redirect subconscious anxiety loops.
-          </p>
-        </div>
-      </div>
-
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-        
-        {/* Left Col (6 cols): Reprogramming Input Form */}
-        <div className="lg:col-span-6 bg-white border border-sage-100 rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-xs">
-          <div>
-            <div className="flex items-center gap-2 mb-3">
-              <span className="p-1.5 bg-gold-50 border border-gold-200 text-gold-700 rounded-lg">
-                <Radio className="w-4 h-4" />
-              </span>
-              <span className="text-[10px] font-mono uppercase tracking-widest text-sage-500 font-bold">
-                reprogramming anchor portal
-              </span>
-            </div>
-            
-            <h3 className="text-xl font-serif font-bold text-sage-950">
-              Discharge the Cognitive Loop
-            </h3>
-            <p className="text-xs text-sage-600 mt-1 leading-relaxed">
-              Type the repetitive anxious thoughts or stressors currently cluttering your mind. We will parse the neurological triggers and customize a resonant Vedic mantra to reprogram the subconscious anchor.
-            </p>
-
-            <form onSubmit={handleReprogram} className="mt-6 space-y-4">
-              <div className="space-y-1.5">
-                <label className="text-[10px] font-mono text-sage-600 uppercase tracking-wider block">
-                  Write your current stress loop
-                </label>
-                <textarea
-                  value={userNegativeInput}
-                  onChange={(e) => setUserNegativeInput(e.target.value)}
-                  placeholder="e.g., I feel completely tired and worried that my workload is piling up and I won't have enough energy..."
-                  className="w-full h-24 p-3 rounded-xl border border-sage-200 bg-sage-50/50 text-xs text-sage-900 focus:outline-none focus:ring-1 focus:ring-gold-500 font-sans resize-none"
-                  maxLength={250}
-                  disabled={isReprogramming || !!reprogrammedResult}
-                />
-                <span className="text-[9px] text-sage-400 font-mono block text-right">
-                  {250 - userNegativeInput.length} characters left
-                </span>
-              </div>
-
-              {!reprogrammedResult && (
-                <button
-                  type="submit"
-                  disabled={isReprogramming || !userNegativeInput.trim()}
-                  className="w-full py-3 rounded-xl bg-sage-800 hover:bg-sage-900 text-white font-bold text-xs uppercase tracking-widest transition-all disabled:opacity-45 disabled:pointer-events-none cursor-pointer flex items-center justify-center gap-2"
-                >
-                  {isReprogramming ? (
-                    <>
-                      <div className="w-3.5 h-3.5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                      <span>Reprogramming Subconscious Anchor...</span>
-                    </>
-                  ) : (
-                    <>
-                      <span>Submit and Reprogram Loop</span>
-                      <ArrowRight className="w-4 h-4 text-gold-300" />
-                    </>
-                  )}
-                </button>
-              )}
-            </form>
-
-            <AnimatePresence>
-              {reprogrammedResult && (
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0 }}
-                  className="mt-4 p-5 rounded-2xl bg-gold-50/70 border border-gold-200/60 space-y-3"
-                >
-                  <div className="flex items-center justify-between border-b border-gold-200/40 pb-2">
-                    <span className="text-[9px] font-mono uppercase tracking-widest text-gold-800 font-bold">
-                      ✦ Vedic NLP Alignment Formulated
-                    </span>
-                    <button
-                      onClick={clearAnchor}
-                      className="text-[9px] font-mono text-sage-400 hover:text-sage-600 underline uppercase"
-                    >
-                      Clear
-                    </button>
-                  </div>
-
-                  <div className="space-y-2 text-xs text-sage-900 font-sans">
-                    <div>
-                      <strong className="block text-[9px] font-mono uppercase text-sage-500">Cognitive Reframing Focus:</strong>
-                      <p className="font-semibold text-sage-950 italic">"{reprogrammedResult.affirmation}"</p>
-                    </div>
-                    <div className="pt-2 border-t border-gold-200/20">
-                      <strong className="block text-[9px] font-mono uppercase text-sage-500">Vibrational Seed-Mantra:</strong>
-                      <p className="font-serif font-bold text-gold-900 text-base mt-0.5">{reprogrammedResult.sanskrit}</p>
-                      <p className="text-[10px] text-sage-600 italic">{reprogrammedResult.translation}</p>
-                    </div>
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
-
-          <div className="pt-3 border-t border-sage-100 text-[10px] font-mono text-sage-400 text-center">
-            ✦ NLP principles applied in harmony with Vedic acoustics
-          </div>
-        </div>
-
-        {/* Right Col (6 cols): Acoustic Aura Visualizer representation */}
-        <div className="lg:col-span-6 bg-sage-950 text-white rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-xs border border-sage-900/40 relative overflow-hidden">
-          
-          {/* Subtle background lines */}
-          <div className="absolute inset-0 opacity-[0.03] pointer-events-none flex items-center justify-center">
-            <svg className="w-64 h-64" viewBox="0 0 100 100">
-              <circle cx="50" cy="50" r="48" fill="none" stroke="currentColor" strokeWidth="0.2" />
-              <circle cx="50" cy="50" r="32" fill="none" stroke="currentColor" strokeWidth="0.1" />
-            </svg>
-          </div>
-
-          <div>
-            <div className="flex items-center gap-2 mb-3">
-              <span className="p-1.5 bg-sage-900 border border-sage-800 text-gold-300 rounded-lg">
-                <Radio className="w-4 h-4 animate-pulse" />
-              </span>
-              <span className="text-[10px] font-mono uppercase tracking-widest text-sage-300 font-bold">
-                acoustic resonance chamber
-              </span>
-            </div>
-            
-            <h3 className="text-xl font-serif font-bold text-white">
-              Cranial Vibration Anchor
-            </h3>
-            <p className="text-xs text-sage-300 mt-1 leading-relaxed">
-              Articulate the seed-syllables aloud to resonate the brain stem and vagus pathways. Enable the acoustic wave to align your respiration period.
-            </p>
-          </div>
-
-          {/* Large visual breathing wave ring */}
-          <div className="my-6 flex flex-col items-center justify-center relative min-h-[180px]">
-            {/* Spinning orbital rays */}
-            <div className={`absolute w-40 h-40 rounded-full border border-dashed border-gold-400/10 transition-transform ${
-              soundFrequencyActive ? "animate-spin scale-110" : ""
-            }`} style={{ animationDuration: "20s" }} />
-
-            {/* Inner pulsing core node */}
-            <div className={`w-24 h-24 rounded-full bg-gradient-to-tr from-gold-500/30 to-[#3b4c3d]/70 border-2 border-gold-400/40 flex flex-col items-center justify-center text-center transition-all ${
-              soundFrequencyActive ? "scale-110 shadow-[0_0_40px_rgba(201,162,83,0.3)] animate-pulse" : "scale-100"
-            }`}>
-              <span className="text-2xl font-serif font-bold text-white">
-                {reprogrammedResult ? reprogrammedResult.beadText : "ॐ"}
-              </span>
-              <span className="text-[8px] font-mono text-gold-300 tracking-wider block mt-1">
-                {reprogrammedResult ? reprogrammedResult.frequency.split(" ")[0] : "432 Hz"}
-              </span>
-            </div>
-          </div>
-
-          <div className="pt-4 border-t border-sage-900 mt-4 flex flex-col sm:flex-row gap-3 items-center justify-between">
-            <span className="text-[9px] text-sage-400 font-mono tracking-wide uppercase">
-              ✦ Frequency: {reprogrammedResult ? reprogrammedResult.frequency : "432 Hz Solfeggio Harmonic"}
+  const interactiveWidget = (
+    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+      {/* Left Col: Form */}
+      <div className="lg:col-span-6 bg-white border border-sage-200 rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-xs">
+        <div>
+          <div className="flex items-center gap-2 mb-3">
+            <span className="p-1.5 bg-gold-50 border border-gold-200 text-gold-700 rounded-lg">
+              <Sparkles className="w-4 h-4" />
             </span>
+            <span className="text-[10px] font-mono uppercase tracking-widest text-sage-500 font-bold">
+              Cognitive Re-Patterning Engine
+            </span>
+          </div>
 
+          <h3 className="text-xl font-serif font-bold text-sage-950">
+            Dismantle Limiting Inner Scripts
+          </h3>
+          <p className="text-xs text-sage-600 mt-1 leading-relaxed">
+            Enter a recurring negative self-talk phrase (e.g. "I'm overwhelmed", "I'm afraid of failing") to synthesize its custom Sanskrit counter-vibration.
+          </p>
+
+          <form onSubmit={handleReprogram} className="mt-5 space-y-3">
+            <input
+              type="text"
+              placeholder="e.g. 'I feel anxious and incapable of keeping up...'"
+              value={userNegativeInput}
+              onChange={(e) => setUserNegativeInput(e.target.value)}
+              className="w-full px-4 py-3 rounded-xl border border-sage-200 text-xs text-sage-900 focus:outline-none focus:border-gold-400 bg-sage-50/50"
+            />
             <button
-              onClick={() => setSoundFrequencyActive(!soundFrequencyActive)}
-              className={`px-5 py-2 rounded-full border text-[10px] font-mono uppercase tracking-widest transition-all cursor-pointer ${
-                soundFrequencyActive
-                  ? "bg-gold-500 text-sage-950 border-gold-600 font-bold"
-                  : "bg-sage-900 text-gold-200 border-sage-800 hover:bg-sage-850"
-              }`}
+              type="submit"
+              disabled={isReprogramming || !userNegativeInput.trim()}
+              className="w-full py-3 rounded-xl bg-sage-900 hover:bg-sage-950 text-gold-200 text-xs font-mono font-bold uppercase transition-all disabled:opacity-50 cursor-pointer flex items-center justify-center gap-2"
             >
-              {soundFrequencyActive ? "Harmonic Active" : "Activate Harmonic"}
+              {isReprogramming ? (
+                <span>Synthesizing Phonemes...</span>
+              ) : (
+                <>
+                  <span>Generate Sanskrit Re-Anchor</span>
+                  <ArrowRight className="w-3.5 h-3.5 text-gold-400" />
+                </>
+              )}
+            </button>
+          </form>
+        </div>
+
+        {reprogrammedResult && (
+          <div className="mt-4 p-4 rounded-2xl bg-sage-50 border border-sage-200 space-y-2">
+            <span className="text-[9px] font-mono uppercase tracking-widest text-gold-700 font-bold block">
+              ✦ Synthesized Counter-Vibration
+            </span>
+            <p className="font-serif font-bold text-sage-900 text-sm">
+              {reprogrammedResult.sanskrit}
+            </p>
+            <p className="text-xs text-sage-700 italic">
+              "{reprogrammedResult.affirmation}"
+            </p>
+            <button
+              onClick={clearAnchor}
+              className="text-[10px] font-mono text-gold-700 hover:text-gold-900 block font-bold underline cursor-pointer pt-1"
+            >
+              Clear & Reprogram Another Script
             </button>
           </div>
-
-        </div>
-
+        )}
       </div>
 
-      {/* Vibration mapping rules */}
-      <div className="bg-sage-50 border border-sage-100 rounded-3xl p-6 sm:p-8 space-y-4 text-center">
-        <h4 className="font-serif font-bold text-sage-950">Vibrational Sound Mechanics (Vedic NLP)</h4>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
-          <div className="bg-white border border-sage-100 p-4 rounded-xl space-y-1">
-            <span className="font-serif text-gold-800 block text-sm font-bold">Mudra (मुद्रा)</span>
-            <p className="text-[10px] text-sage-500 font-sans leading-relaxed">Touch the thumb to the index finger (Jnana Mudra) to stimulate focus feedback loops.</p>
+      {/* Right Col: Audio Frequency Simulator */}
+      <div className="lg:col-span-6 bg-sage-900 text-white rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-xs border border-sage-950 space-y-4">
+        <div>
+          <div className="flex items-center gap-2 mb-3">
+            <span className="p-1.5 bg-sage-800 border border-sage-700 text-gold-300 rounded-lg">
+              <Radio className="w-4 h-4" />
+            </span>
+            <span className="text-[10px] font-mono uppercase tracking-widest text-sage-300 font-bold">
+              Vedic Vak Sound Oscillator
+            </span>
           </div>
-          <div className="bg-white border border-sage-100 p-4 rounded-xl space-y-1">
-            <span className="font-serif text-gold-800 block text-sm font-bold">Nadi (नाडी)</span>
-            <p className="text-[10px] text-sage-500 font-sans leading-relaxed">Align your spine to allow cranial resonances to travel unobstructed up the central cord.</p>
+
+          <h3 className="text-xl font-serif font-bold text-white">
+            Vibrational Sound Resonator
+          </h3>
+          <p className="text-xs text-sage-300 mt-1 leading-relaxed">
+            Listen to the high-frequency harmonic tone tuned to the 528 Hz transformation scale to relax cranial nerves during speech reframing.
+          </p>
+
+          <div className="mt-6 p-5 rounded-2xl bg-sage-850/80 border border-sage-800 space-y-3">
+            <div className="flex items-center justify-between">
+              <div>
+                <span className="text-xs font-serif font-bold text-white block">528 Hz Transformation Tone</span>
+                <span className="text-[10px] font-mono text-sage-400 block">Solfeggio Sound Harmonic</span>
+              </div>
+              <button
+                onClick={() => setSoundFrequencyActive(!soundFrequencyActive)}
+                className={`p-3 rounded-full transition-all cursor-pointer ${
+                  soundFrequencyActive ? "bg-gold-500 text-sage-950" : "bg-sage-800 text-gold-300 hover:bg-sage-750"
+                }`}
+              >
+                <Volume2 className="w-4 h-4" />
+              </button>
+            </div>
+            <p className="text-[10px] text-sage-300 leading-relaxed font-sans">
+              {soundFrequencyActive ? "✦ Harmonic sound oscillator active. Inhale deeply and recite your Sanskrit anchor." : "Oscillator standby. Click the speaker icon to play background tone."}
+            </p>
           </div>
-          <div className="bg-white border border-sage-100 p-4 rounded-xl space-y-1">
-            <span className="font-serif text-gold-800 block text-sm font-bold">Prana (प्राण)</span>
-            <p className="text-[10px] text-sage-500 font-sans leading-relaxed">Exhale completely on the mantra syllables to decompress cortisol storage in the lungs.</p>
-          </div>
+        </div>
+
+        <div className="pt-3 border-t border-sage-800 text-center">
+          <span className="text-[9px] text-sage-400 font-mono uppercase tracking-widest block">
+            ✦ Practice for 3 minutes twice daily for neural pathway re-patterning
+          </span>
         </div>
       </div>
     </div>
+  );
+
+  return (
+    <ProgramPageTemplate program={program} customInteractiveWidget={interactiveWidget} />
   );
 }

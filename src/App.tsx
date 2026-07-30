@@ -47,18 +47,20 @@ import SpinelignProgram from "./components/SpinelignProgram";
 import NlpProgram from "./components/NlpProgram";
 import MentalHealthWellness from "./components/MentalHealthWellness";
 import SelfAssessment from "./components/SelfAssessment";
+import DiscoverHarmoniseProgram from "./components/DiscoverHarmoniseProgram";
 
 // Navigation pages (representing properly structured navigable pages requested by user)
 type PageId = "home" | "about" | "programs" | "journal" | "blog" | "offerings" | "events" | "contact"
   | "corporate-burnout" | "spinelign" | "nlp-program" | "mental-health-wellness"
-  | "corporate-unburn" | "nlp" | "mental-wellness" | "self-assessment";
+  | "corporate-unburn" | "nlp" | "mental-wellness" | "self-assessment"
+  | "discover-transform" | "discover-harmonise";
 
 export const SUB_OFFERINGS = [
+  { id: "discover-transform", label: "Discover Harmonise Transform" },
   { id: "corporate-unburn", label: "Corporate Unburn" },
   { id: "spinelign", label: "Spinelign" },
-  { id: "nlp", label: "NLP" },
-  { id: "mental-wellness", label: "Mental Wellness" },
-  { id: "self-assessment", label: "Self Assessment Tool" }
+  { id: "nlp", label: "NLP (Neuro-Linguistic Programming – Rewire)" },
+  { id: "mental-wellness", label: "Mental Wellness Assistant Program" }
 ];
 
 // Navigation tabs matching the vertical menu from the reference image inside the Home page
@@ -1339,6 +1341,18 @@ export default function App() {
                     layoutType="circular-carousel" 
                     sectionTitle="Divine Offerings Portals" 
                     sectionSubtitle="Siddha artifacts and sacred statues aligned with specific mental wavelengths" 
+                  />
+                </div>
+              )}
+
+              {/* ==================== DISCOVER HARMONISE TRANSFORM PROGRAM ==================== */}
+              {(activePage === "discover-transform" || activePage === "discover-harmonise") && (
+                <div className="space-y-12">
+                  <DiscoverHarmoniseProgram />
+                  <SacredGallery3D 
+                    layoutType="sacred-grid" 
+                    sectionTitle="Sanctuary Focus Seals" 
+                    sectionSubtitle="Siddha sacred visual anchors for deep attention and non-dual contemplation" 
                   />
                 </div>
               )}

@@ -173,25 +173,17 @@ export default function LineageHero({ onExploreClick, onNavigateToPage }: { onEx
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
-                className="text-6xl md:text-7xl lg:text-8xl xl:text-[5.5rem] font-serif font-light text-[#1a2f1e] leading-[0.92] tracking-tighter"
+                className="text-4xl md:text-5xl lg:text-6xl xl:text-[4rem] font-serif font-light text-[#1a2f1e] leading-[1.05] tracking-tight"
               >
-                Discover.
+                Walk the Path of
               </motion.h1>
               <motion.h1 
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.15 }}
-                className="text-6xl md:text-7xl lg:text-8xl xl:text-[5.5rem] font-serif font-light text-[#1a2f1e] leading-[0.92] tracking-tighter"
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="text-4xl md:text-5xl lg:text-6xl xl:text-[4rem] font-serif font-medium text-[#2a4d33] leading-[1.05] tracking-tight"
               >
-                Harmonize.
-              </motion.h1>
-              <motion.h1 
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                className="text-6xl md:text-7xl lg:text-8xl xl:text-[5.5rem] font-serif font-medium text-[#2a4d33] leading-[0.92] tracking-tighter"
-              >
-                Transform.
+                Immortal Awareness
               </motion.h1>
             </div>
 
@@ -211,9 +203,9 @@ export default function LineageHero({ onExploreClick, onNavigateToPage }: { onEx
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
-              className="text-sage-950 text-lg md:text-xl lg:text-2xl leading-relaxed font-sans max-w-lg font-light tracking-wide"
+              className="text-sage-950 text-base md:text-lg lg:text-xl leading-relaxed font-sans max-w-lg font-light tracking-wide"
             >
-              Holistic practices for a conscious life and an immortal soul. Steady the prana, and step into the light of absolute awareness.
+              Discover inner equilibrium, resolve conflicts, and steady the prana. Step into the timeless light of self-realization.
             </motion.p>
 
             <motion.div
@@ -225,7 +217,7 @@ export default function LineageHero({ onExploreClick, onNavigateToPage }: { onEx
                 onClick={onExploreClick}
                 className="inline-flex items-center gap-2.5 px-10 py-4.5 rounded-full bg-[#5c6f59] hover:bg-[#465a44] text-white font-sans font-bold text-sm uppercase tracking-widest shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer active:scale-95"
               >
-                <span>Explore More</span>
+                <span>Explore Programs</span>
                 <ChevronRight className="w-5 h-5 text-gold-300" />
               </button>
             </motion.div>
@@ -257,15 +249,15 @@ export default function LineageHero({ onExploreClick, onNavigateToPage }: { onEx
               </div>
 
               {/* Practices List vertically aligned */}
-              <div className="relative z-10 flex flex-col gap-3 w-full">
-                <span className="text-xs font-mono uppercase tracking-[0.25em] text-gold-800 font-semibold mb-2 block text-left">
-                  Offerings
+              <div className="relative z-10 flex flex-col gap-2.5 w-full">
+                <span className="text-xs font-mono uppercase tracking-[0.25em] text-gold-800 font-semibold mb-1 block text-left">
+                  Programs & Offerings
                 </span>
-                <PracticeItem label="Corporate Unburn" icon={Shield} delay={0.4} pageId="corporate-unburn" onClick={onNavigateToPage} />
-                <PracticeItem label="Spinelign" icon={Compass} delay={0.5} pageId="spinelign" onClick={onNavigateToPage} />
-                <PracticeItem label="NLP" icon={Wind} delay={0.6} pageId="nlp" onClick={onNavigateToPage} />
-                <PracticeItem label="Mental Wellness" icon={Heart} delay={0.7} pageId="mental-wellness" onClick={onNavigateToPage} />
-                <PracticeItem label="Self Assessment Tool" icon={BookOpen} delay={0.8} pageId="self-assessment" onClick={onNavigateToPage} />
+                <PracticeItem label="Discover Harmonise Transform" icon={Leaf} delay={0.4} pageId="discover-transform" onClick={onNavigateToPage} />
+                <PracticeItem label="Corporate Unburn" icon={Shield} delay={0.5} pageId="corporate-unburn" onClick={onNavigateToPage} />
+                <PracticeItem label="Spinelign" icon={Compass} delay={0.6} pageId="spinelign" onClick={onNavigateToPage} />
+                <PracticeItem label="NLP" icon={Wind} delay={0.7} pageId="nlp" onClick={onNavigateToPage} />
+                <PracticeItem label="Mental Wellness" icon={Heart} delay={0.8} pageId="mental-wellness" onClick={onNavigateToPage} />
               </div>
 
             </div>
