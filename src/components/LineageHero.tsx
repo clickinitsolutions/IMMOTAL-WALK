@@ -256,7 +256,7 @@ export default function LineageHero({ onExploreClick, onNavigateToPage }: { onEx
                 <PracticeItem label="Discover Harmonise Transform" icon={Leaf} delay={0.4} pageId="discover-transform" onClick={onNavigateToPage} />
                 <PracticeItem label="Corporate Unburn" icon={Shield} delay={0.5} pageId="corporate-unburn" onClick={onNavigateToPage} />
                 <PracticeItem label="Spinelign" icon={Compass} delay={0.6} pageId="spinelign" onClick={onNavigateToPage} />
-                <PracticeItem label="NLP" icon={Wind} delay={0.7} pageId="nlp" onClick={onNavigateToPage} />
+                <PracticeItem label="NLP Rewire" icon={Wind} delay={0.7} pageId="nlp" onClick={onNavigateToPage} />
                 <PracticeItem label="Mental Wellness" icon={Heart} delay={0.8} pageId="mental-wellness" onClick={onNavigateToPage} />
               </div>
 

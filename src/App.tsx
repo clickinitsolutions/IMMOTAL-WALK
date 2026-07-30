@@ -59,7 +59,7 @@ export const SUB_OFFERINGS = [
   { id: "discover-transform", label: "Discover Harmonise Transform" },
   { id: "corporate-unburn", label: "Corporate Unburn" },
   { id: "spinelign", label: "Spinelign" },
-  { id: "nlp", label: "NLP (Neuro-Linguistic Programming – Rewire)" },
+  { id: "nlp", label: "NLP Rewire" },
   { id: "mental-wellness", label: "Mental Wellness Assistant Program" }
 ];
 

@@ -76,72 +76,73 @@ export const FIVE_PROGRAMS: Program[] = [
     title: "Discover Harmonise Transform",
     tagline: "Awaken Inner Equilibrium, Resolve Conflicts & Harness Conscious Focus",
     sanskrit: "अनुभव समन्वय परिवर्तन (Anubhava Samanvaya Parivartana)",
-    duration: "7 Days (Guided Immersion)",
-    fee: "₹14,999 / $199",
-    mode: "Online Live & Self-Paced Sanctuary",
+    duration: "To be announced",
+    fee: "To be announced",
+    mode: "Online / Offline",
     intensity: "Gentle & Deeply Integrative",
-    description: "A foundational holistic program addressing basic psychology, false ego, inner conflicts, and over-commitments that silently impair health, focus, and productivity.",
-    aboutText: "Modern life traps us in continuous over-commitments, escalating friction, and subconscious fatigue. This program delves into basic human psychology, unmasking the false ego and resolving inner conflicts. By identifying the root causes of mental noise and over-commitments, you restore natural physical health, sustained productivity, and crystalline focus.",
-    forWhom: "Designed for professionals, seekers, leaders, and individuals struggling with over-commitments, mental fatigue, internal friction, false ego traps, and diminished focus.",
+    description: "An integrative program addressing Basic Psychology, False Ego, Inner Conflicts, and Over Commitments affecting Health + Productivity + Focus.",
+    aboutText: "An integrative foundational program delving into Basic Psychology, False Ego, Inner Conflicts, and Over Commitments affecting Health + Productivity + Focus. Unmask the root drivers of mental friction, eliminate energy drains, and align your inner instruments for lasting self-mastery.",
+    forWhom: "Designed for professionals, seekers, and individuals struggling with Basic Psychology traps, False Ego mechanisms, Inner Conflicts, and Over Commitments affecting physical Health, daily Productivity, and mental Focus.",
     category: "foundational",
     categoryLabel: "Foundational Journey",
     target: "Seekers, Over-Committed Leaders & Focus Seekers",
     image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&q=80&w=600",
     icon: Compass,
     highlights: [
-      "Unmasking basic psychology & false ego mechanisms",
-      "Resolving inner conflicts & over-commitment stress",
-      "Restoring physical health, executive focus & productivity",
-      "Mastering Three Gunas & Antahkaran self-knowledge"
+      "Basic Psychology, False Ego & Inner Conflict Resolution",
+      "Over Commitments affecting Health + Productivity + Focus",
+      "Understanding & Discovering Root Causes of Human Issues",
+      "Discovering Realities of Human Life (Three Gunas & Antahkaran)",
+      "Cleaning, Balancing, Harmonising & Sustainability Tips / Practices"
     ],
     syllabus: [
       {
         moduleNumber: "i",
-        title: "Understanding & Discovering Root Causes of Human Issues",
+        title: "Understanding Discovering Root Causes of Human Issues",
         items: [
-          "The Traps (Mental over-commitments & reactivity loops)",
-          "The Illusions (Perceived urgencies & external validation)",
-          "Invisible Patterns (Subconscious habits causing energy drains)",
-          "Inner Conflicts (Disalignment between values and actions)",
-          "False Ego (Identification with titles, roles, and defensiveness)"
+          "the traps",
+          "the illusions",
+          "invisible patterns",
+          "inner conflicts",
+          "false ego"
         ]
       },
       {
         moduleNumber: "ii",
         title: "Discovering Realities of Human Life",
         items: [
-          "Basic Concepts of Mind-Body Physiology",
-          "Discovering Self beyond societal conditioning",
-          "Three Gunas (Sattva - Balance, Rajas - Action/Restlessness, Tamas - Inertia)",
-          "Antahkaran (Fourfold Mind: Manas, Buddhi, Chitta, Ahamkara)"
+          "basic concepts",
+          "Discovering Self",
+          "Three Gunas",
+          "Antahkaran"
         ]
       },
       {
         moduleNumber: "iii",
         title: "Cleaning, Balancing, Harmonising",
         items: [
-          "Basis and Emotional Cleaning (Releasing accumulated tension)",
-          "Karma and Dharma (Aligning right action with natural duty)",
-          "Spiritual Aspects of Existence (Connecting to non-dual stillness)"
+          "Basis and Emotional cleaning",
+          "Karma and Dharma",
+          "Spiritual Aspects of Existence"
         ]
       },
       {
         moduleNumber: "iv",
         title: "Sustainability Tips / Practices",
         items: [
-          "Daily micro-routines to prevent burnout",
-          "Anchoring focus amidst corporate & personal demands",
-          "Sustaining emotional harmony & ego-transcendence in action"
+          "Daily micro-routines to prevent burnout and sustain energy",
+          "Anchoring focus and clarity amidst personal and professional demands",
+          "Long-term integration of emotional cleaning and non-dual balance"
         ]
       }
     ],
     benefits: [
-      "Clear understanding of basic psychology & false ego traps",
-      "Elimination of over-commitment fatigue and chronic stress",
-      "Restoration of sharp focus, mental stamina, and daily productivity",
-      "Resolution of inner conflicts affecting health and relationships",
-      "Deep emotional cleaning and practical mastery over Three Gunas",
-      "Sustainable daily practices that maintain peace under high pressure"
+      "Deep understanding of Basic Psychology, False Ego mechanisms, and root causes of friction",
+      "Resolution of Inner Conflicts and elimination of Over Commitments affecting Health + Productivity + Focus",
+      "Restoration of natural physical vitality, daily productivity, and crystal-clear mental focus",
+      "Mastery over basic concepts, Discovering Self, Three Gunas, and Antahkaran (fourfold mind)",
+      "Experiencing Basis and Emotional cleaning, Karma and Dharma alignment, and Spiritual Aspects of Existence",
+      "Practical Sustainability Tips / Practices to maintain emotional balance and peace in daily life"
     ],
     days: [
       {
@@ -218,62 +219,63 @@ export const FIVE_PROGRAMS: Program[] = [
   },
   {
     id: "corporate-unburn",
-    title: "Corporate Unburn – Unthread Stress • Rethread Life",
+    title: "Corporate Unburn",
     tagline: "Unthread Stress • Rethread Life",
     sanskrit: "ऊर्जा पुनरुत्थान (Urja Punarutthana)",
-    duration: "3 Days (Executive Intensive)",
-    fee: "₹18,500 / $249",
-    mode: "Online Live / Corporate On-Site",
-    intensity: "Calming / Vagus Balancing",
-    description: "A targeted executive protocol designed to quiet an overstimulated nervous system, balance vagal tone, and protect high-performing leaders from burnout.",
-    aboutText: "High-pressure executive environments subject leaders to continuous decision fatigue, sympathetic nervous overdrive, and sleep disruption. Corporate Unburn provides a scientifically backed and ancient-inspired framework to unthread chronic stress and rethread life with calm vitality.",
-    forWhom: "Corporate Leaders, Business Executives, HR Champions, Team Leads, and High-Performance Professionals.",
+    duration: "To be announced",
+    fee: "To be announced",
+    mode: "Online / In-person / Hybrid",
+    intensity: "Calming & Deep Executive Unwind",
+    description: "An integrative program designed for corporate professionals, leaders, and teams to unthread deep-rooted stress patterns and rethread a balanced, productive, and conscious way of living and working.",
+    aboutText: "An integrative executive program designed to unthread deep-rooted corporate stress patterns and rethread a balanced, productive, and conscious way of living and working.",
+    forWhom: "This program is designed for corporate professionals, leaders, and teams who are experiencing high stress, burnout, over-commitment, and loss of focus due to modern work pressures. It helps unthread deep-rooted stress patterns and rethread a balanced, productive, and conscious way of living and working.",
     category: "corporate",
     categoryLabel: "Executive & Workplace",
-    target: "Corporate Professionals, Executives & HR Leaders",
+    target: "Corporate Professionals, Leaders & Teams",
     image: "https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&q=80&w=600",
     icon: Flame,
     subPageId: "corporate-unburn",
     highlights: [
-      "Vagus nerve stimulation sequences to reduce sympathetic overdrive",
-      "Micro-resets for high-velocity meeting schedules & email fatigue",
-      "Cortisol reduction through ancient 4-7-8 ratio humming breathwork",
-      "Sustaining clear focus without mental exhaustion"
+      "Understanding root causes of corporate stress & burnout",
+      "Unmasking over-commitment & false productivity patterns",
+      "Resolving inner conflicts & false ego in professional life",
+      "Tools for emotional cleaning & mental clarity",
+      "Restoring balance between work, health, and inner peace",
+      "Building sustainable high-performance without burnout"
     ],
     syllabus: [
       {
         moduleNumber: "i",
-        title: "Vagus Nerve & Sympathetic Reset",
+        title: "Root Causes of Stress & Burnout",
         items: [
-          "Understanding sympathetic overdrive in corporate settings",
-          "Vagus nerve activation techniques & HRV optimization",
-          "4-7-8 ratio humming breathwork for rapid cortisol reduction"
+          "Understanding the root causes of corporate stress and burnout",
+          "Identifying invisible patterns of over-commitment and false productivity"
         ]
       },
       {
         moduleNumber: "ii",
-        title: "Executive Micro-Resets & Meeting Resilience",
+        title: "Inner Conflicts & Ego Mechanics",
         items: [
-          "Implementing 2-minute desk micro-resets between back-to-back calls",
-          "Releasing decision fatigue & cognitive clutter",
-          "Maintaining postural sovereignty while sitting"
+          "Inner conflicts and the false ego in professional life",
+          "Tools for emotional cleaning and mental clarity"
         ]
       },
       {
         moduleNumber: "iii",
-        title: "Long-Term Energy Preservation & Restful Sleep",
+        title: "Restoring Balance & Sustainable High-Performance",
         items: [
-          "Evening digital shutdown & pineal gland activation",
-          "Preventing empathetic fatigue & emotional absorption",
-          "Building a sustainable corporate wellness strategy"
+          "Practical methods to restore balance between work, health, and inner peace",
+          "Building sustainable high-performance without burnout"
         ]
       }
     ],
     benefits: [
-      "Immediate reduction in acute stress and heart-rate variability normalization",
-      "Enhanced decision clarity during high-stakes executive scenarios",
-      "Elimination of post-work mental exhaustion & chronic fatigue",
-      "Restoration of natural, restorative deep sleep patterns"
+      "Reduced stress and mental fatigue",
+      "Improved focus, clarity, and decision-making",
+      "Better emotional regulation under pressure",
+      "Higher productivity with less exhaustion",
+      "Stronger work-life harmony",
+      "Long-term resilience against burnout"
     ],
     days: [
       {
@@ -313,59 +315,60 @@ export const FIVE_PROGRAMS: Program[] = [
     title: "Spinelign",
     tagline: "Postural Integrity & Spinal Energy Flow",
     sanskrit: "मेरुदण्ड संरेखण (Merudanda Alignment)",
-    duration: "3 Days (Somatic Alignment)",
-    fee: "₹12,500 / $169",
-    mode: "Online Guided & Hybrid Practice",
-    intensity: "Structural / Somatic Release",
-    description: "Decompress intervertebral disks, correct desk-bound posture, and restore the natural curvature of your spine for effortless physical alignment and vitality.",
-    aboutText: "Extended desk work and sedentary posture compress the intervertebral disks and restrict the natural energy flow through Sushumna Nadi. Spinelign provides somatic spinal exercises and alignment principles that restore graceful posture and back vitality.",
-    forWhom: "Desk Professionals, Remote Workers, Software Engineers, and anyone experiencing lumbar or neck stiffness.",
+    duration: "To be announced",
+    fee: "To be announced",
+    mode: "Online / In-person",
+    intensity: "Physical & Energetic Alignment",
+    description: "Physical alignment, energetic balance, and deeper body awareness through spinal practices for mental and spiritual clarity.",
+    aboutText: "Spinelign is for individuals seeking physical alignment, energetic balance, and deeper body awareness. It is ideal for those dealing with postural issues, energy blockages, or anyone wanting to align the spine as a pathway to mental and spiritual clarity.",
+    forWhom: "Spinelign is for individuals seeking physical alignment, energetic balance, and deeper body awareness. It is ideal for those dealing with postural issues, energy blockages, or anyone wanting to align the spine as a pathway to mental and spiritual clarity.",
     category: "somatic",
     categoryLabel: "Somatic Spine Health",
-    target: "Desk Professionals, Remote Workers & Spine Strain Seekers",
+    target: "Individuals seeking physical alignment, energetic balance & body awareness",
     image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=600",
     icon: Activity,
     subPageId: "spinelign",
     highlights: [
-      "Decompressing intervertebral disks caused by prolonged sitting",
-      "Opening Sushumna Nadi central energy channel for mental clarity",
-      "Shoulder girdle decompression & collarbone chest expansion",
-      "Lower back pelvic floor grounding anchors"
+      "Understanding the spine as the central axis of body and consciousness",
+      "Postural awareness and alignment practices",
+      "Breath and movement integration for spinal health",
+      "Releasing energetic blockages along the spine",
+      "Practices for grounding, centering, and vertical alignment",
+      "Connecting physical alignment with mental clarity and emotional balance"
     ],
     syllabus: [
       {
         moduleNumber: "i",
-        title: "Somatic Disk Decompression & Crown Elevation",
+        title: "Spine as the Central Axis & Postural Awareness",
         items: [
-          "Understanding intervertebral disk pressure in seated posture",
-          "Crown elevation micro-movements for spinal lengthening",
-          "Releasing cervical spine stiffness and forward head posture"
+          "Understanding the spine as the central axis of body and consciousness",
+          "Postural awareness and alignment practices"
         ]
       },
       {
         moduleNumber: "ii",
-        title: "Thoracic Opening & Prana Flow",
+        title: "Breath, Movement & Releasing Blockages",
         items: [
-          "Shoulder girdle opening & collarbone expansion",
-          "Freeing restricted diaphragmatic breath from tight ribs",
-          "Aligning the heart center with upright posture"
+          "Breath and movement integration for spinal health",
+          "Releasing energetic blockages along the spine"
         ]
       },
       {
         moduleNumber: "iii",
-        title: "Pelvic Grounding & Core Anchor",
+        title: "Grounding, Vertical Alignment & Clarity",
         items: [
-          "Muladhara pelvic alignment for lower back health",
-          "Ergonomic seating principles for home and office",
-          "Building an effortless posture habit that lasts"
+          "Practices for grounding, centering, and vertical alignment",
+          "Connecting physical alignment with mental clarity and emotional balance"
         ]
       }
     ],
     benefits: [
-      "Relief from chronic lower back, neck, and shoulder stiffness",
-      "Increased lung capacity and improved diaphragmatic breathing",
-      "Enhanced physical presence and confident, upright posture",
-      "Unblocked energy flow along the central spinal column (Sushumna)"
+      "Improved posture and physical comfort",
+      "Increased energy flow and vitality",
+      "Greater body awareness and presence",
+      "Reduction in physical tension and stiffness",
+      "Enhanced mental clarity through physical alignment",
+      "Deeper sense of inner stability and balance"
     ],
     days: [
       {
@@ -402,62 +405,65 @@ export const FIVE_PROGRAMS: Program[] = [
   },
   {
     id: "nlp-rewire",
-    title: "Neuro-Linguistic Programming – Rewire",
+    title: "NLP Rewire",
     tagline: "Rewire Subconscious Patterns & Sacred Speech",
     sanskrit: "वाक्-मनो विज्ञान (Vak-Mano Vijnana)",
-    duration: "3 Days (Cognitive Workshop)",
-    fee: "₹16,000 / $219",
-    mode: "Online Interactive Live Stream",
-    intensity: "Cognitive / Transforming",
-    description: "Combine modern NLP linguistic anchors with Vedic Vak science to dismantle self-limiting subconscious loops, dissolve cognitive fear, and speak with authentic presence.",
-    aboutText: "Our words and internal monologue shape our neural pathways and emotional reactions. NLP Rewire integrates modern cognitive linguistics with ancient Vedic Vak Shakti principles to deconstruct negative self-talk, rewrite subconscious scripts, and instill unwavering inner confidence.",
-    forWhom: "Speakers, Coaches, Executives, Individuals overcoming self-doubt, and anyone seeking subconscious mental clarity.",
+    duration: "To be announced",
+    fee: "To be announced",
+    mode: "Online / Live sessions",
+    intensity: "Cognitive & Neurological Rewiring",
+    description: "Rewire limiting beliefs, emotional patterns, and unconscious behaviours for personal transformation, better communication, and emotional mastery.",
+    aboutText: "An integrative cognitive rewiring program for anyone who wants to rewire limiting beliefs, emotional patterns, and unconscious behaviours. Ideal for those seeking personal transformation, better communication, emotional mastery, and lasting change at the neurological level.",
+    forWhom: "This program is for anyone who wants to rewire limiting beliefs, emotional patterns, and unconscious behaviours. Ideal for those seeking personal transformation, better communication, emotional mastery, and lasting change at the neurological level.",
     category: "cognitive",
     categoryLabel: "Cognitive Rewiring",
-    target: "Personal Growth Seekers, Speakers & High-Acuity Thinkers",
+    target: "Anyone seeking personal transformation, communication & emotional mastery",
     image: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&q=80&w=600",
     icon: Brain,
     subPageId: "nlp",
     highlights: [
-      "Identifying & deconstructing subconscious limiting inner speech",
-      "Establishing mudra physiological anchors for instant calmness",
-      "Vedic Vak speech resonance for clear, confident communication",
-      "Neural re-patterning to convert anxiety into constructive action"
+      "Foundations of Neuro-Linguistic Programming",
+      "Understanding how the mind creates patterns and beliefs",
+      "Identifying and interrupting limiting internal dialogue",
+      "Techniques to reframe experiences and change emotional responses",
+      "Anchoring positive states and resourceful emotions",
+      "Practical tools for communication, influence, and self-mastery",
+      "Rewiring habits and creating new neurological pathways"
     ],
     syllabus: [
       {
         moduleNumber: "i",
-        title: "Subconscious Auditing & Language Patterns",
+        title: "Foundations & Mind Patterns",
         items: [
-          "Mapping internal linguistic loops & automatic reactions",
-          "Identifying hidden limiting beliefs and cognitive traps",
-          "Deconstructing fear-based internal monologues"
+          "Foundations of Neuro-Linguistic Programming",
+          "Understanding how the mind creates patterns and beliefs",
+          "Identifying and interrupting limiting internal dialogue"
         ]
       },
       {
         moduleNumber: "ii",
-        title: "Physiological Anchoring & Mudra Science",
+        title: "Reframing & Anchoring States",
         items: [
-          "Creating instant calm anchors using somatic triggers",
-          "Mudra integration for rapid emotional stabilization",
-          "Converting nervous energy into focused enthusiasm"
+          "Techniques to reframe experiences and change emotional responses",
+          "Anchoring positive states and resourceful emotions"
         ]
       },
       {
         moduleNumber: "iii",
-        title: "Vak Shakti & Authentic Projection",
+        title: "Communication & Neurological Rewiring",
         items: [
-          "Speaking from diaphragm & heart center",
-          "Aligning spoken words with inner truth & conviction",
-          "Mastering clear, persuasive communication"
+          "Practical tools for communication, influence, and self-mastery",
+          "Rewiring habits and creating new neurological pathways"
         ]
       }
     ],
     benefits: [
-      "Permanent rewriting of self-sabotaging inner scripts",
-      "Ability to trigger state-of-calm within seconds using physical anchors",
-      "Enhanced public speaking confidence and authentic voice resonance",
-      "Freedom from fear of failure or judgment in social and professional settings"
+      "Freedom from old limiting beliefs and patterns",
+      "Greater emotional control and resilience",
+      "Improved communication and relationships",
+      "Faster personal transformation",
+      "Ability to create desired mental and emotional states consciously",
+      "Long-term behavioural change at the root level"
     ],
     days: [
       {
@@ -497,59 +503,60 @@ export const FIVE_PROGRAMS: Program[] = [
     title: "Mental Wellness Assistant Program",
     tagline: "Empathetic Support, Emotional First-Aid & Community Care",
     sanskrit: "मनो स्वास्थ्य सहायता (Manas Swasthya Sahayata)",
-    duration: "5 Days (Certification Pathway)",
-    fee: "₹21,000 / $279",
-    mode: "Online Live Certification & Practicum",
+    duration: "To be announced",
+    fee: "To be announced",
+    mode: "Online / Guided support",
     intensity: "Reflective & Empathetic",
-    description: "A practitioner certification pathway empowering wellness champions and mental health advocates with Vedic non-judgmental counseling, emotional first-aid, and compassionate listening.",
-    aboutText: "In a world facing unprecedented anxiety and mental noise, trained empathetic listeners and wellness champions are vital. This program equips participants with non-judgmental witnessing techniques, emotional first-aid tools, and compassionate crisis support grounded in ancient wisdom.",
-    forWhom: "Wellness Champions, HR Advocates, Mental Health Volunteers, Caregivers, and Empathetic Individuals.",
+    description: "Ongoing structured support for mental and emotional well-being, dealing with anxiety, overthinking, and emotional imbalance toward inner stability.",
+    aboutText: "An ongoing structured program designed for individuals seeking support for mental and emotional well-being, dealing with anxiety, overthinking, and emotional imbalance to establish inner stability and mental clarity.",
+    forWhom: "This program is designed for individuals seeking ongoing support for mental and emotional well-being. Suitable for those dealing with anxiety, overthinking, emotional imbalance, or anyone who wants a structured path toward inner stability and mental clarity.",
     category: "wellness",
     categoryLabel: "Mental Health & Counseling",
-    target: "Wellness Champions, HR Advocates & Mental Health Helpers",
+    target: "Individuals seeking ongoing mental well-being, inner stability & clarity",
     image: "https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&q=80&w=600",
     icon: Heart,
     subPageId: "mental-wellness",
     highlights: [
-      "Non-judgmental active listening & emotional first-aid protocols",
-      "De-escalating acute panic and cognitive overwhelm",
-      "Subconscious samskara emotional release techniques",
-      "Maintaining healthy energetic boundaries while holding safe space"
+      "Personalized mental wellness guidance",
+      "Tools for emotional regulation and stress management",
+      "Practices for clearing mental clutter and overthinking",
+      "Building emotional resilience and inner strength",
+      "Daily and weekly practices for sustained mental balance",
+      "Supportive framework for long-term mental well-being"
     ],
     syllabus: [
       {
         moduleNumber: "i",
-        title: "Sakshi Bhava & Non-Judgmental Listening",
+        title: "Personalized Guidance & Emotional Regulation",
         items: [
-          "Holding clean, compassionate space without personal bias",
-          "Active listening techniques for emotional validation",
-          "Understanding the psychology of emotional suffering"
+          "Personalized mental wellness guidance",
+          "Tools for emotional regulation and stress management"
         ]
       },
       {
         moduleNumber: "ii",
-        title: "Emotional First-Aid & Panic De-Escalation",
+        title: "Clutter Clearing & Resilience",
         items: [
-          "Guiding grounding breathwork during acute anxiety",
-          "Somatic touch and vocal cadence for calming others",
-          "Recognizing warning signs and knowing when to escalate"
+          "Practices for clearing mental clutter and overthinking",
+          "Building emotional resilience and inner strength"
         ]
       },
       {
         moduleNumber: "iii",
-        title: "Samskara Release & Boundary Protection",
+        title: "Sustained Practice & Supportive Framework",
         items: [
-          "Helping individuals process suppressed emotional blocks",
-          "Establishing energetic shields to avoid personal exhaustion",
-          "Ethical framework & community wellness leadership"
+          "Daily and weekly practices for sustained mental balance",
+          "Supportive framework for long-term mental well-being"
         ]
       }
     ],
     benefits: [
-      "Practitioner certification as a Remote Walks Mental Wellness Assistant",
-      "Mastery over emotional first-aid protocols for family, friends, and colleagues",
-      "Deep capacity for compassionate, non-judgmental active listening",
-      "Strong personal boundaries that prevent caregiver burnout"
+      "Reduced anxiety and mental restlessness",
+      "Greater emotional stability and calm",
+      "Improved self-awareness and clarity",
+      "Better ability to handle daily stressors",
+      "Sustainable mental wellness habits",
+      "Feeling supported on the journey of inner growth"
     ],
     days: [
       {
