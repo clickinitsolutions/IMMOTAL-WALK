@@ -1,0 +1,8 @@
+{
+  "name": "Remix Immortal Walks",
+  "description": "Holistic practices for a conscious life and an immortal soul. Awaken, align, and transcend with guided meditation, breathwork timers, daily zen wisdom, and reflective journaling.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

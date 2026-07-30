@@ -1,0 +1,346 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-serif: "Playfair Display", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  /* Custom brand palettes */
+  --color-sage-50: #f4f6f4;
+  --color-sage-100: #e5eae6;
+  --color-sage-200: #ccd6cd;
+  --color-sage-300: #a9baa9;
+  --color-sage-400: #819882;
+  --color-sage-500: #627b63;
+  --color-sage-600: #4c624d;
+  --color-sage-700: #3f5040;
+  --color-sage-800: #354236;
+  --color-sage-900: #2c362d;
+  --color-sage-950: #181f18;
+
+  --color-gold-50: #fdfbf3;
+  --color-gold-100: #faf3de;
+  --color-gold-200: #f3e3bc;
+  --color-gold-300: #e9ca8f;
+  --color-gold-400: #dda85d;
+  --color-gold-500: #d18d35;
+  --color-gold-600: #b97227;
+  --color-gold-700: #995521;
+  --color-gold-800: #7d431f;
+  --color-gold-900: #66371c;
+}
+
+/* Custom fade-in and smooth breath animation keyframes */
+@keyframes breath {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.35;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 0.85;
+  }
+}
+
+@keyframes slow-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.animate-breath {
+  animation: breath 8s ease-in-out infinite;
+}
+
+.animate-slow-spin {
+  animation: slow-spin 60s linear infinite;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+html {
+  font-size: 16px !important;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-size: 1rem !important;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Base custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-sage-300);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-sage-400);
+}
+
+/* --- CUSTOM FLOATING PETALS ANIMATION --- */
+#petals {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Custom styled highly-visible petals styled as elegant light green and soft gold-green sage leaves */
+.petal {
+  position: absolute;
+  width: 14px;
+  height: 20px;
+  background: linear-gradient(180deg, #a9baa9, #819882); /* Soft Sage Green Leaf */
+  border-radius: 50% 0 50% 50%; /* Leaf-like shape */
+  opacity: 0.35;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.08));
+  animation: petal-drift linear infinite;
+  transform-origin: center;
+}
+
+/* Elegant light green variants matching the website's botanical theme */
+.petal-pink {
+  background: linear-gradient(180deg, #e5eae6, #ccd6cd) !important; /* Pale Sage Green */
+  border-radius: 0 50% 50% 50%;
+}
+
+.petal-amber {
+  background: linear-gradient(180deg, #e9ca8f, #a9baa9) !important; /* Gold-Green Hue */
+  border-radius: 50% 50% 0 50%;
+}
+
+.petal-rose {
+  background: linear-gradient(180deg, #ccd6cd, #a9baa9) !important; /* Light Muted Sage */
+  border-radius: 50% 0 50% 50%;
+}
+
+.petal-coral {
+  background: linear-gradient(180deg, #d8e4d9, #9ab29b) !important; /* Fresh Olive-Sage */
+  border-radius: 0 50% 50% 50%;
+}
+
+/* Smooth realistic slow 3D floating animation path that fades out early before reaching the top text */
+@keyframes petal-drift {
+  0% {
+    transform: translateY(10%) rotate(0deg) rotateX(0deg) rotateY(0deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.22; /* Reduced opacity for ultra-professional, premium feel */
+  }
+  45% {
+    opacity: 0.12; /* Gradually fades as it moves upwards */
+  }
+  60% {
+    transform: translateY(-38vh) rotate(140deg) rotateX(120deg) rotateY(70deg);
+    opacity: 0; /* Disappears completely before reaching the 'awaken' text height */
+  }
+  100% {
+    transform: translateY(-38vh) rotate(140deg) rotateX(120deg) rotateY(70deg);
+    opacity: 0;
+  }
+}
+
+/* --- YANTRA VISUAL AIDS PREMIUM KEYFRAMES --- */
+@keyframes mandala-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes mandala-spin-rev {
+  0% { transform: rotate(360deg); }
+  100% { transform: rotate(0deg); }
+}
+
+@keyframes chakra-pulse {
+  0% {
+    transform: scale(0.35);
+    opacity: 0.85;
+  }
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+
+@keyframes ripple-out {
+  0% {
+    transform: scale(0.15);
+    opacity: 0.9;
+    border-width: 2px;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+    border-width: 1px;
+  }
+}
+
+@keyframes smoke-rise {
+  0% {
+    transform: translate(-50%, 0) scale(0.85) rotate(0deg);
+    opacity: 0;
+  }
+  8% {
+    opacity: 0.45;
+  }
+  30% {
+    transform: translate(calc(-50% + 15px), -75px) scale(1.75) rotate(15deg);
+    opacity: 0.3;
+  }
+  60% {
+    transform: translate(calc(-50% - 18px), -150px) scale(2.8) rotate(-20deg);
+    opacity: 0.15;
+  }
+  100% {
+    transform: translate(calc(-50% + 10px), -240px) scale(4) rotate(10deg);
+    opacity: 0;
+  }
+}
+
+@keyframes aura-breathe {
+  0%, 100% {
+    transform: scale(0.8);
+    opacity: 0.4;
+    filter: blur(20px);
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.85;
+    filter: blur(28px);
+  }
+}
+
+/* --- HORIZONTAL MARQUEE ANIMATION FOR HEADER SLIDING SERVICES --- */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 95s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* --- TASTEFUL MICROINTERACTION ANIMATIONS & UTILITIES --- */
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-8deg) scale(1.05); }
+  75% { transform: rotate(8deg) scale(1.05); }
+}
+
+@keyframes float-subtle {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-4px); }
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  50% { transform: scale(1.15); opacity: 0.2; }
+  100% { transform: scale(0.95); opacity: 0.8; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes scale-bounce {
+  0% { transform: scale(1); }
+  50% { transform: scale(0.94); }
+  100% { transform: scale(1); }
+}
+
+/* Microinteraction utility classes */
+.btn-micro {
+  transition: all 0.25s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.btn-micro:hover {
+  transform: translateY(-1.5px) scale(1.015);
+}
+.btn-micro:active {
+  transform: translateY(0.5px) scale(0.975);
+}
+
+.btn-shimmer {
+  background-size: 200% 100%;
+  background-image: linear-gradient(
+    110deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0) 35%,
+    rgba(255, 255, 255, 0.25) 50%,
+    rgba(255, 255, 255, 0) 65%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transition: background-position 0.6s ease, transform 0.25s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.btn-shimmer:hover {
+  background-position: 100% 0;
+  transform: translateY(-2px) scale(1.02);
+}
+
+.card-micro {
+  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.card-micro:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px -6px rgba(0, 0, 0, 0.08), 0 4px 10px -2px rgba(0, 0, 0, 0.03);
+}
+
+.icon-wiggle:hover {
+  animation: wiggle 0.4s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+.icon-spin-hover {
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.icon-spin-hover:hover {
+  transform: rotate(15deg) scale(1.1);
+}
+
+.pulse-node {
+  animation: pulse-ring 3s ease-in-out infinite;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+
+
+
