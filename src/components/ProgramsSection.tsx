@@ -9,18 +9,33 @@ import {
   Flame, 
   Timer, 
   Heart, 
-  Lock,
+  ArrowRight, 
+  User, 
+  Shield, 
+  Sparkles,
+  X,
   Compass,
-  ArrowRight,
-  Briefcase,
-  User,
-  Shield,
-  Lightbulb,
-  Zap
+  Activity,
+  Brain,
+  Layers,
+  Feather,
+  Check,
+  DollarSign,
+  Calendar,
+  Monitor,
+  Users,
+  Target,
+  FileText
 } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 
-interface Day {
+export interface SyllabusModule {
+  moduleNumber: string;
+  title: string;
+  items: string[];
+}
+
+export interface Day {
   dayNum: number;
   title: string;
   duration: string;
@@ -31,42 +46,244 @@ interface Day {
   mantra: string;
 }
 
-interface Program {
+export interface Program {
   id: string;
   title: string;
+  tagline: string;
   sanskrit: string;
   duration: string;
+  fee: string;
+  mode: string;
   intensity: string;
   description: string;
-  category: "corporate" | "mastery" | "coach" | "practitioner";
+  aboutText: string;
+  forWhom: string;
+  category: "foundational" | "corporate" | "somatic" | "cognitive" | "wellness";
   categoryLabel: string;
   target: string;
   image: string;
+  icon: React.ComponentType<any>;
+  subPageId?: string;
+  highlights: string[];
+  syllabus: SyllabusModule[];
+  benefits: string[];
   days: Day[];
 }
 
-const PROGRAMS: Program[] = [
-  // 1. Corporate Wellness & Performance
+export const FIVE_PROGRAMS: Program[] = [
   {
-    id: "burnout-recovery",
-    title: "Corporate Burnout Recovery",
-    sanskrit: "ऊर्जा पुनरुत्थान (Urja Punarutthana)",
-    duration: "3 Days",
-    intensity: "Calming / Vagus Balancing",
-    description: "Quieten the overstimulated autonomic nervous system. Reorganize cognitive boundaries, activate vagal tone, and anchor professional high performance in unshakeable inner silence.",
-    category: "corporate",
-    categoryLabel: "Corporate Wellness & Performance",
-    target: "Corporate Professionals & HR Directors",
-    image: "https://i.pinimg.com/736x/a9/05/67/a905674c4544a886d38657dba8b8b055.jpg",
+    id: "discover-harmonise",
+    title: "Discover Harmonise Transform",
+    tagline: "Awaken Inner Equilibrium, Resolve Conflicts & Harness Conscious Focus",
+    sanskrit: "अनुभव समन्वय परिवर्तन (Anubhava Samanvaya Parivartana)",
+    duration: "7 Days (Guided Immersion)",
+    fee: "₹14,999 / $199",
+    mode: "Online Live & Self-Paced Sanctuary",
+    intensity: "Gentle & Deeply Integrative",
+    description: "A foundational holistic program addressing basic psychology, false ego, inner conflicts, and over-commitments that silently impair health, focus, and productivity.",
+    aboutText: "Modern life traps us in continuous over-commitments, escalating friction, and subconscious fatigue. This program delves into basic human psychology, unmasking the false ego and resolving inner conflicts. By identifying the root causes of mental noise and over-commitments, you restore natural physical health, sustained productivity, and crystalline focus.",
+    forWhom: "Designed for professionals, seekers, leaders, and individuals struggling with over-commitments, mental fatigue, internal friction, false ego traps, and diminished focus.",
+    category: "foundational",
+    categoryLabel: "Foundational Journey",
+    target: "Seekers, Over-Committed Leaders & Focus Seekers",
+    image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&q=80&w=600",
+    icon: Compass,
+    highlights: [
+      "Unmasking basic psychology & false ego mechanisms",
+      "Resolving inner conflicts & over-commitment stress",
+      "Restoring physical health, executive focus & productivity",
+      "Mastering Three Gunas & Antahkaran self-knowledge"
+    ],
+    syllabus: [
+      {
+        moduleNumber: "i",
+        title: "Understanding & Discovering Root Causes of Human Issues",
+        items: [
+          "The Traps (Mental over-commitments & reactivity loops)",
+          "The Illusions (Perceived urgencies & external validation)",
+          "Invisible Patterns (Subconscious habits causing energy drains)",
+          "Inner Conflicts (Disalignment between values and actions)",
+          "False Ego (Identification with titles, roles, and defensiveness)"
+        ]
+      },
+      {
+        moduleNumber: "ii",
+        title: "Discovering Realities of Human Life",
+        items: [
+          "Basic Concepts of Mind-Body Physiology",
+          "Discovering Self beyond societal conditioning",
+          "Three Gunas (Sattva - Balance, Rajas - Action/Restlessness, Tamas - Inertia)",
+          "Antahkaran (Fourfold Mind: Manas, Buddhi, Chitta, Ahamkara)"
+        ]
+      },
+      {
+        moduleNumber: "iii",
+        title: "Cleaning, Balancing, Harmonising",
+        items: [
+          "Basis and Emotional Cleaning (Releasing accumulated tension)",
+          "Karma and Dharma (Aligning right action with natural duty)",
+          "Spiritual Aspects of Existence (Connecting to non-dual stillness)"
+        ]
+      },
+      {
+        moduleNumber: "iv",
+        title: "Sustainability Tips / Practices",
+        items: [
+          "Daily micro-routines to prevent burnout",
+          "Anchoring focus amidst corporate & personal demands",
+          "Sustaining emotional harmony & ego-transcendence in action"
+        ]
+      }
+    ],
+    benefits: [
+      "Clear understanding of basic psychology & false ego traps",
+      "Elimination of over-commitment fatigue and chronic stress",
+      "Restoration of sharp focus, mental stamina, and daily productivity",
+      "Resolution of inner conflicts affecting health and relationships",
+      "Deep emotional cleaning and practical mastery over Three Gunas",
+      "Sustainable daily practices that maintain peace under high pressure"
+    ],
     days: [
       {
         dayNum: 1,
-        title: "Calming the Vagus Nerve",
+        title: "Unmasking the Root Causes & Traps",
+        duration: "15 mins",
+        sanskrit: "मूल कारण ज्ञान (Mula Karana Jnana)",
+        focus: "Identifying mental traps, illusions, and over-commitments",
+        description: "Examine the invisible patterns that drive over-commitments and inner conflict. Recognize how the false ego drains your focus.",
+        guideline: "List 3 recent situations where over-commitment created stress. Observe without self-judgment.",
+        mantra: "Aham Sakshi (I am the unmoving witness of all thoughts)"
+      },
+      {
+        dayNum: 2,
+        title: "Navigating False Ego & Inner Conflicts",
+        duration: "15 mins",
+        sanskrit: "अहंकार विसर्जन (Ahamkara Visarjana)",
+        focus: "Dissolving false ego friction and restoring emotional ease",
+        description: "Deconstruct the defensiveness of false ego. Learn to respond to challenges from quiet clarity rather than ego reaction.",
+        guideline: "Whenever ego defensiveness arises today, pause for one deep breath and ask: 'Who am I defending?'",
+        mantra: "Om Shanti (Pure undisturbed peace)"
+      },
+      {
+        dayNum: 3,
+        title: "Discovering Self & The Three Gunas",
+        duration: "18 mins",
+        sanskrit: "गुण त्रय विचार (Guna Traya Vichara)",
+        focus: "Balancing Sattva, Rajas, and Tamas for health and stamina",
+        description: "Understand your current state across the Three Gunas. Learn to elevate Tamas (inertia) into Sattva (light & calm focus).",
+        guideline: "Notice whether your energy is sluggish (Tamas), frantic (Rajas), or clear (Sattva). Adjust diet and breath accordingly.",
+        mantra: "Sattvam Bhashate (Sattva illuminates)"
+      },
+      {
+        dayNum: 4,
+        title: "Mastering Antahkaran (The Inner Instrument)",
+        duration: "18 mins",
+        sanskrit: "अन्तःकरण शुद्धि (Antahkaran Shuddhi)",
+        focus: "Harmonizing Manas, Buddhi, Chitta, and Ahamkara",
+        description: "Align your sensory mind (Manas), intellect (Buddhi), memory vault (Chitta), and identity (Ahamkara) into a cohesive unit.",
+        guideline: "Let Buddhi (intellect) guide Manas (desires) gently during decision-making today.",
+        mantra: "Om Buddhyai Namah"
+      },
+      {
+        dayNum: 5,
+        title: "Basis & Emotional Cleaning",
+        duration: "15 mins",
+        sanskrit: "भाव शुद्धि (Bhava Shuddhi)",
+        focus: "Releasing suppressed emotional weight and mental toxins",
+        description: "Clear accumulated emotional residue from past conflicts. Restore freshness to your heart and mind.",
+        guideline: "Exhale through the mouth with a soft sigh, releasing stored tightness in the solar plexus.",
+        mantra: "Om Hreem Namah"
+      },
+      {
+        dayNum: 6,
+        title: "Aligning Karma & Dharma",
+        duration: "15 mins",
+        sanskrit: "धर्म कर्म योग (Dharma Karma Yoga)",
+        focus: "Connecting daily action with purpose and health",
+        description: "Act with full dedication without attaching your peace to immediate external outcomes.",
+        guideline: "Perform your daily duties as an offering of excellence without anxious over-concern.",
+        mantra: "Karmanye Vadhikaraste (Action is your sacred domain)"
+      },
+      {
+        dayNum: 7,
+        title: "Sustainability & Unbroken Transformation",
+        duration: "20 mins",
+        sanskrit: "सहज स्थिति (Sahaja Sthiti)",
+        focus: "Embedding lifelong practices for health, focus, and productivity",
+        description: "Consolidate your transformation into daily micro-anchors that preserve clarity in all conditions.",
+        guideline: "Set a 3-minute morning and evening stillness ritual to sustain this state permanently.",
+        mantra: "Aham Brahmasmi (I am the unbroken essence of life)"
+      }
+    ]
+  },
+  {
+    id: "corporate-unburn",
+    title: "Corporate Unburn – Unthread Stress • Rethread Life",
+    tagline: "Unthread Stress • Rethread Life",
+    sanskrit: "ऊर्जा पुनरुत्थान (Urja Punarutthana)",
+    duration: "3 Days (Executive Intensive)",
+    fee: "₹18,500 / $249",
+    mode: "Online Live / Corporate On-Site",
+    intensity: "Calming / Vagus Balancing",
+    description: "A targeted executive protocol designed to quiet an overstimulated nervous system, balance vagal tone, and protect high-performing leaders from burnout.",
+    aboutText: "High-pressure executive environments subject leaders to continuous decision fatigue, sympathetic nervous overdrive, and sleep disruption. Corporate Unburn provides a scientifically backed and ancient-inspired framework to unthread chronic stress and rethread life with calm vitality.",
+    forWhom: "Corporate Leaders, Business Executives, HR Champions, Team Leads, and High-Performance Professionals.",
+    category: "corporate",
+    categoryLabel: "Executive & Workplace",
+    target: "Corporate Professionals, Executives & HR Leaders",
+    image: "https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&q=80&w=600",
+    icon: Flame,
+    subPageId: "corporate-unburn",
+    highlights: [
+      "Vagus nerve stimulation sequences to reduce sympathetic overdrive",
+      "Micro-resets for high-velocity meeting schedules & email fatigue",
+      "Cortisol reduction through ancient 4-7-8 ratio humming breathwork",
+      "Sustaining clear focus without mental exhaustion"
+    ],
+    syllabus: [
+      {
+        moduleNumber: "i",
+        title: "Vagus Nerve & Sympathetic Reset",
+        items: [
+          "Understanding sympathetic overdrive in corporate settings",
+          "Vagus nerve activation techniques & HRV optimization",
+          "4-7-8 ratio humming breathwork for rapid cortisol reduction"
+        ]
+      },
+      {
+        moduleNumber: "ii",
+        title: "Executive Micro-Resets & Meeting Resilience",
+        items: [
+          "Implementing 2-minute desk micro-resets between back-to-back calls",
+          "Releasing decision fatigue & cognitive clutter",
+          "Maintaining postural sovereignty while sitting"
+        ]
+      },
+      {
+        moduleNumber: "iii",
+        title: "Long-Term Energy Preservation & Restful Sleep",
+        items: [
+          "Evening digital shutdown & pineal gland activation",
+          "Preventing empathetic fatigue & emotional absorption",
+          "Building a sustainable corporate wellness strategy"
+        ]
+      }
+    ],
+    benefits: [
+      "Immediate reduction in acute stress and heart-rate variability normalization",
+      "Enhanced decision clarity during high-stakes executive scenarios",
+      "Elimination of post-work mental exhaustion & chronic fatigue",
+      "Restoration of natural, restorative deep sleep patterns"
+    ],
+    days: [
+      {
+        dayNum: 1,
+        title: "Vagus Nerve Attunement & Cortisol Release",
         duration: "10 mins",
         sanskrit: "प्राण शमन (Prana Shamana)",
-        focus: "Slowing heart rate variance, activating the parasympathetic response",
-        description: "Release cortisol spikes. Engage in an ancient 4-7-8 ratio sequence combined with soft humming to soothe the central nervous axis.",
-        guideline: "Sit back in your office chair. Uncross your ankles. Close your eyes. Inhale for 4 seconds, hold for 7 seconds, exhale making a soft bee hum for 8 seconds.",
+        focus: "Slowing heart rate variance & soothing vagal tone",
+        description: "Release executive tension. Engage in a 4-7-8 ratio sequence with soft humming to soothe the central nervous axis.",
+        guideline: "Sit back in your chair. Uncross ankles. Inhale 4s, hold 7s, exhale with a humming sound for 8s.",
         mantra: "Om Shanti Shanti (Deep peaceful stillness)"
       },
       {
@@ -74,43 +291,91 @@ const PROGRAMS: Program[] = [
         title: "Decompressing Executive Stress",
         duration: "12 mins",
         sanskrit: "मानस मोचन (Manasa Mochana)",
-        focus: "Releasing psychological urgency and checklist anxiety",
-        description: "Establish a mental boundary. Observe the noise of upcoming emails as simple external waves while you sit as the quiet ocean floor.",
-        guideline: "Imagine your pending tasks as dry leaves floating on a slow river. You are the unmoving riverbed, watching them drift by.",
-        mantra: "Aham Nirbhayah (I am free from fear and hurry)"
+        focus: "Releasing psychological urgency and decision fatigue",
+        description: "Observe pending emails and tasks as external waves while sitting as the unmoving ocean floor.",
+        guideline: "Imagine your task list as dry leaves floating down a river. You are the quiet riverbed.",
+        mantra: "Aham Nirbhayah (I am free from urgency)"
       },
       {
         dayNum: 3,
-        title: "Sustaining Quiet in Active Operations",
+        title: "Sustaining Quiet in High-Velocity Operations",
         duration: "15 mins",
         sanskrit: "कर्म योग समाधि (Karma Yoga Samadhi)",
-        focus: "Integrating deep meditation into high-velocity corporate choices",
-        description: "Maintain your anchor in meetings. Discover how to process rapid information while breathing from the lower diaphragm.",
-        guideline: "Keep your spine perfectly straight during virtual calls. Feel the ground beneath your feet and speak only from presence.",
+        focus: "Maintaining deep presence during active meetings",
+        description: "Discover how to process rapid information while breathing calmly from the lower diaphragm.",
+        guideline: "Keep your spine upright during calls. Feel the soles of your feet on the floor.",
         mantra: "Om Tat Sat (Truth is the ultimate ground)"
       }
     ]
   },
   {
-    id: "spinalign",
-    title: "Spinalign (Posture & Back Health)",
+    id: "spinelign",
+    title: "Spinelign",
+    tagline: "Postural Integrity & Spinal Energy Flow",
     sanskrit: "मेरुदण्ड संरेखण (Merudanda Alignment)",
-    duration: "3 Days",
-    intensity: "Structural / Physical Release",
-    description: "Align your central axis (Sushumna Nadi). Rebuild perfect postural ergonomics to counter sitting fatigue, opening energy channels for mental clarity.",
-    category: "corporate",
-    categoryLabel: "Corporate Wellness & Performance",
-    target: "Desk Professionals & Back Strain Seekers",
-    image: "https://i.pinimg.com/736x/52/6b/23/526b2388d24c122ce5815ff42f81d241.jpg",
+    duration: "3 Days (Somatic Alignment)",
+    fee: "₹12,500 / $169",
+    mode: "Online Guided & Hybrid Practice",
+    intensity: "Structural / Somatic Release",
+    description: "Decompress intervertebral disks, correct desk-bound posture, and restore the natural curvature of your spine for effortless physical alignment and vitality.",
+    aboutText: "Extended desk work and sedentary posture compress the intervertebral disks and restrict the natural energy flow through Sushumna Nadi. Spinelign provides somatic spinal exercises and alignment principles that restore graceful posture and back vitality.",
+    forWhom: "Desk Professionals, Remote Workers, Software Engineers, and anyone experiencing lumbar or neck stiffness.",
+    category: "somatic",
+    categoryLabel: "Somatic Spine Health",
+    target: "Desk Professionals, Remote Workers & Spine Strain Seekers",
+    image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=600",
+    icon: Activity,
+    subPageId: "spinelign",
+    highlights: [
+      "Decompressing intervertebral disks caused by prolonged sitting",
+      "Opening Sushumna Nadi central energy channel for mental clarity",
+      "Shoulder girdle decompression & collarbone chest expansion",
+      "Lower back pelvic floor grounding anchors"
+    ],
+    syllabus: [
+      {
+        moduleNumber: "i",
+        title: "Somatic Disk Decompression & Crown Elevation",
+        items: [
+          "Understanding intervertebral disk pressure in seated posture",
+          "Crown elevation micro-movements for spinal lengthening",
+          "Releasing cervical spine stiffness and forward head posture"
+        ]
+      },
+      {
+        moduleNumber: "ii",
+        title: "Thoracic Opening & Prana Flow",
+        items: [
+          "Shoulder girdle opening & collarbone expansion",
+          "Freeing restricted diaphragmatic breath from tight ribs",
+          "Aligning the heart center with upright posture"
+        ]
+      },
+      {
+        moduleNumber: "iii",
+        title: "Pelvic Grounding & Core Anchor",
+        items: [
+          "Muladhara pelvic alignment for lower back health",
+          "Ergonomic seating principles for home and office",
+          "Building an effortless posture habit that lasts"
+        ]
+      }
+    ],
+    benefits: [
+      "Relief from chronic lower back, neck, and shoulder stiffness",
+      "Increased lung capacity and improved diaphragmatic breathing",
+      "Enhanced physical presence and confident, upright posture",
+      "Unblocked energy flow along the central spinal column (Sushumna)"
+    ],
     days: [
       {
         dayNum: 1,
         title: "Sushumna Channel Decompression",
         duration: "12 mins",
         sanskrit: "मेरु चालन (Meru Chalana)",
-        focus: "Stretching the intervertebral disks and aligning the skull over tailbone",
-        description: "Release compressed vertebrae. Learn to lift the crown of the head while anchoring the seat to natural gravity.",
-        guideline: "Sit on a firm chair. Inhale deeply, extending your spine upward. Exhale, releasing shoulder tension downward. Maintain the vertical height.",
+        focus: "Stretching intervertebral disks and crown alignment",
+        description: "Release compressed vertebrae. Learn to lift the crown of your head while anchoring the seat to gravity.",
+        guideline: "Inhale extending spine upward. Exhale releasing shoulder tension downward while maintaining vertical height.",
         mantra: "Om Namo Narayana (Alignment with natural order)"
       },
       {
@@ -118,80 +383,82 @@ const PROGRAMS: Program[] = [
         title: "Prana Flow & Shoulder Release",
         duration: "12 mins",
         sanskrit: "स्कन्ध मोक्ष (Skandha Moksha)",
-        focus: "Releasing cervical spine stiffness and chest congestion",
-        description: "Decompress tight neck muscles and expand thoracic capacity. Connect structural integrity to deep tidal breathing.",
-        guideline: "Roll your shoulders back 5 times. Interlace fingers behind your back and expand the collarbones while inhaling deeply.",
-        mantra: "Prana Devaya Namah (Honor the life-force current)"
+        focus: "Releasing cervical spine stiffness & chest tightness",
+        description: "Decompress neck muscles and expand thoracic capacity to connect structural posture with deep breathing.",
+        guideline: "Roll shoulders back 5 times. Interlace fingers behind lower back and open collarbones while breathing deeply.",
+        mantra: "Prana Devaya Namah (Honor life-force current)"
       },
       {
         dayNum: 3,
-        title: "The Steady Core Anchor",
+        title: "The Steady Pelvic Core Anchor",
         duration: "15 mins",
         sanskrit: "मूलाधार दृढता (Muladhara Dridhata)",
-        focus: "Establishing stability from the pelvic floor",
-        description: "Build an unshakeable base. Align the lower back to alleviate desk-bound tension and anchor mental confidence.",
-        guideline: "Contract the pelvic floor gently (Mula Bandha) on the exhalation. Keep the lumbar curve neutral and natural.",
+        focus: "Establishing stability from the pelvic floor base",
+        description: "Align the lower back to alleviate sitting fatigue and anchor core confidence throughout the workday.",
+        guideline: "Engage a soft pelvic lift (Mula Bandha) on the exhale while keeping the lumbar curve natural.",
         mantra: "Aham Sthirah (I am grounded, stable, and strong)"
       }
     ]
   },
   {
-    id: "mental-coaching",
-    title: "Mental Health Coaching & Counselling",
-    sanskrit: "मनो स्वास्थ्य चिकित्सा (Manas Chikitsa)",
-    duration: "3 Days",
-    intensity: "Reflective / Gentle Counsel",
-    description: "Transition from cognitive chaos to radiant stability. Use traditional non-dual counseling methods to identify and release deep mental blocks.",
-    category: "corporate",
-    categoryLabel: "Corporate Wellness & Performance",
-    target: "HR Leaders, Seekers of Mental Balance",
-    image: "https://i.pinimg.com/736x/b4/58/6e/b4586e776769e07110a3cd1e158ed9e9.jpg",
-    days: [
-      {
-        dayNum: 1,
-        title: "Mental Cloud Witnessing",
-        duration: "15 mins",
-        sanskrit: "साक्षी भाव (Sakshi Bhava)",
-        focus: "De-identifying with anxious thought spirals",
-        description: "Stop being the storm; become the quiet sky. Learn the art of observing memory ripples without jumping into the current.",
-        guideline: "Whenever an anxious thought arises, label it objectively as 'a wave in the mind' and return your focus to the silent heart.",
-        mantra: "Aham Sakshi (I am the silent witness of the mind)"
-      },
-      {
-        dayNum: 2,
-        title: "Unpacking Subconscious Burdens",
-        duration: "15 mins",
-        sanskrit: "संस्कार शोधन (Sanskara Shodhana)",
-        focus: "Safely processing suppressed emotional blocks",
-        description: "Expose ancient habitual patterns (Samskaras) to the light of present-moment awareness, neutralizing their active triggers.",
-        guideline: "Inhale, welcoming the uncomfortable sensation in the body. Exhale, releasing the mental narrative attached to it.",
-        mantra: "Om Hreem Namah (Vibrational purification)"
-      },
-      {
-        dayNum: 3,
-        title: "Stabilizing the Intellect",
-        duration: "18 mins",
-        sanskrit: "प्रज्ञा स्थिरता (Pragya Sthirata)",
-        focus: "Anchoring the mind in clear, decisive wisdom",
-        description: "Step into clear, wise knowing. Harmonize the active mind with the intuitive heart center to walk in absolute certainty.",
-        guideline: "Inhale into the third eye, exhaling down into the spiritual heart. Rest in the quiet wisdom that emerges.",
-        mantra: "Satya Swarupoham (I am of the nature of absolute truth)"
-      }
-    ]
-  },
-
-  // 2. Inner Mastery & Applied Practices
-  {
-    id: "nlp-subconscious",
-    title: "NLP (Subconscious Linguistics)",
+    id: "nlp-rewire",
+    title: "Neuro-Linguistic Programming – Rewire",
+    tagline: "Rewire Subconscious Patterns & Sacred Speech",
     sanskrit: "वाक्-मनो विज्ञान (Vak-Mano Vijnana)",
-    duration: "3 Days",
+    duration: "3 Days (Cognitive Workshop)",
+    fee: "₹16,000 / $219",
+    mode: "Online Interactive Live Stream",
     intensity: "Cognitive / Transforming",
-    description: "Align Neuro-Linguistic Programming with Vedic Vak (Sacred Speech). Rewire unconscious triggers, dissolve limiting inner self-talk, and pattern absolute clarity.",
-    category: "mastery",
-    categoryLabel: "Inner Mastery & Applied Practices",
-    target: "Personal Growth Seekers & High-Acuity Thinkers",
-    image: "https://i.pinimg.com/736x/94/44/a9/9444a9fdbdecf706160227eab7b18ed7.jpg",
+    description: "Combine modern NLP linguistic anchors with Vedic Vak science to dismantle self-limiting subconscious loops, dissolve cognitive fear, and speak with authentic presence.",
+    aboutText: "Our words and internal monologue shape our neural pathways and emotional reactions. NLP Rewire integrates modern cognitive linguistics with ancient Vedic Vak Shakti principles to deconstruct negative self-talk, rewrite subconscious scripts, and instill unwavering inner confidence.",
+    forWhom: "Speakers, Coaches, Executives, Individuals overcoming self-doubt, and anyone seeking subconscious mental clarity.",
+    category: "cognitive",
+    categoryLabel: "Cognitive Rewiring",
+    target: "Personal Growth Seekers, Speakers & High-Acuity Thinkers",
+    image: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&q=80&w=600",
+    icon: Brain,
+    subPageId: "nlp",
+    highlights: [
+      "Identifying & deconstructing subconscious limiting inner speech",
+      "Establishing mudra physiological anchors for instant calmness",
+      "Vedic Vak speech resonance for clear, confident communication",
+      "Neural re-patterning to convert anxiety into constructive action"
+    ],
+    syllabus: [
+      {
+        moduleNumber: "i",
+        title: "Subconscious Auditing & Language Patterns",
+        items: [
+          "Mapping internal linguistic loops & automatic reactions",
+          "Identifying hidden limiting beliefs and cognitive traps",
+          "Deconstructing fear-based internal monologues"
+        ]
+      },
+      {
+        moduleNumber: "ii",
+        title: "Physiological Anchoring & Mudra Science",
+        items: [
+          "Creating instant calm anchors using somatic triggers",
+          "Mudra integration for rapid emotional stabilization",
+          "Converting nervous energy into focused enthusiasm"
+        ]
+      },
+      {
+        moduleNumber: "iii",
+        title: "Vak Shakti & Authentic Projection",
+        items: [
+          "Speaking from diaphragm & heart center",
+          "Aligning spoken words with inner truth & conviction",
+          "Mastering clear, persuasive communication"
+        ]
+      }
+    ],
+    benefits: [
+      "Permanent rewriting of self-sabotaging inner scripts",
+      "Ability to trigger state-of-calm within seconds using physical anchors",
+      "Enhanced public speaking confidence and authentic voice resonance",
+      "Freedom from fear of failure or judgment in social and professional settings"
+    ],
     days: [
       {
         dayNum: 1,
@@ -199,775 +466,698 @@ const PROGRAMS: Program[] = [
         duration: "15 mins",
         sanskrit: "संस्कार परीक्षा (Sanskara Pariksha)",
         focus: "Identifying limiting verbal loops and neural triggers",
-        description: "Uncover the silent linguistic codes that dictate your emotional states. Map your core automatic reactions to release them.",
-        guideline: "Identify one phrase you say to yourself when stressed. Write it down mentally. Observe its heavy vibration and dissolve it.",
-        mantra: "Om Vak Devya Namah (Honor the divine power of speech)"
+        description: "Uncover the silent linguistic codes that dictate emotional states and dissolve core automatic reactions.",
+        guideline: "Identify one phrase you say when stressed. Observe its heavy vibration and release it into silence.",
+        mantra: "Om Vak Devyai Namah (Honor the divine power of speech)"
       },
       {
         dayNum: 2,
         title: "Neurological Re-Patterning",
         duration: "15 mins",
         sanskrit: "मनो लय (Mano Laya)",
-        focus: "Establishing positive, high-frequency mental triggers",
-        description: "Superimpose Vedic truth patterns over old, anxious self-limiting tracks. Form a strong physiological anchor of success.",
-        guideline: "Touch the tip of your thumb and ring finger while inhaling. Mentally associate this mudra with absolute presence and strength.",
-        mantra: "Aham Brahmasmi (I am the infinite, unlimited reality)"
+        focus: "Superimposing empowering neural triggers",
+        description: "Superimpose Vedic truth patterns over old self-limiting tracks to form a strong physiological anchor.",
+        guideline: "Touch thumb and ring finger together while inhaling. Associate this mudra with unshakeable composure.",
+        mantra: "Aham Brahmasmi (I am unlimited reality)"
       },
       {
         dayNum: 3,
         title: "Empowering the Sovereign Voice",
         duration: "15 mins",
         sanskrit: "वाक् शक्ति (Vak Shakti)",
-        focus: "Projecting reality from absolute heart presence",
-        description: "Align your speech with truth. Learn to speak with unshakeable composure, transmitting immediate clarity to listeners.",
-        guideline: "Speak slowly, breathing from the navel. Let every word you speak be seasoned with silence and intent.",
-        mantra: "Om Shanti (I speak from the absolute background of peace)"
+        focus: "Projecting speech from deep heart presence",
+        description: "Align your speech with truth. Learn to speak with calm conviction that transmits immediate clarity.",
+        guideline: "Speak slowly from the navel diaphragm. Let every word be seasoned with silence and clear intent.",
+        mantra: "Om Shanti (I speak from absolute peace)"
       }
     ]
   },
   {
-    id: "meditation-mastery",
-    title: "Meditation Mastery (Absolute Presence)",
-    sanskrit: "सप्त ध्यान (Sapt Dhyana)",
-    duration: "7 Days",
-    intensity: "Gentle / Pure Contemplation",
-    description: "Inhabit unmoving Himalayan silence. Trace the detailed 7-day path to cultivate non-dual witness consciousness and dissolve mental clutter.",
-    category: "mastery",
-    categoryLabel: "Inner Mastery & Applied Practices",
-    target: "Sincere Seekers of Traditional Silence",
-    image: "https://i.pinimg.com/736x/a3/36/8b/a3368bb5b0cb76008788b15a3a1b8772.jpg",
+    id: "mental-wellness-assistant",
+    title: "Mental Wellness Assistant Program",
+    tagline: "Empathetic Support, Emotional First-Aid & Community Care",
+    sanskrit: "मनो स्वास्थ्य सहायता (Manas Swasthya Sahayata)",
+    duration: "5 Days (Certification Pathway)",
+    fee: "₹21,000 / $279",
+    mode: "Online Live Certification & Practicum",
+    intensity: "Reflective & Empathetic",
+    description: "A practitioner certification pathway empowering wellness champions and mental health advocates with Vedic non-judgmental counseling, emotional first-aid, and compassionate listening.",
+    aboutText: "In a world facing unprecedented anxiety and mental noise, trained empathetic listeners and wellness champions are vital. This program equips participants with non-judgmental witnessing techniques, emotional first-aid tools, and compassionate crisis support grounded in ancient wisdom.",
+    forWhom: "Wellness Champions, HR Advocates, Mental Health Volunteers, Caregivers, and Empathetic Individuals.",
+    category: "wellness",
+    categoryLabel: "Mental Health & Counseling",
+    target: "Wellness Champions, HR Advocates & Mental Health Helpers",
+    image: "https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&q=80&w=600",
+    icon: Heart,
+    subPageId: "mental-wellness",
+    highlights: [
+      "Non-judgmental active listening & emotional first-aid protocols",
+      "De-escalating acute panic and cognitive overwhelm",
+      "Subconscious samskara emotional release techniques",
+      "Maintaining healthy energetic boundaries while holding safe space"
+    ],
+    syllabus: [
+      {
+        moduleNumber: "i",
+        title: "Sakshi Bhava & Non-Judgmental Listening",
+        items: [
+          "Holding clean, compassionate space without personal bias",
+          "Active listening techniques for emotional validation",
+          "Understanding the psychology of emotional suffering"
+        ]
+      },
+      {
+        moduleNumber: "ii",
+        title: "Emotional First-Aid & Panic De-Escalation",
+        items: [
+          "Guiding grounding breathwork during acute anxiety",
+          "Somatic touch and vocal cadence for calming others",
+          "Recognizing warning signs and knowing when to escalate"
+        ]
+      },
+      {
+        moduleNumber: "iii",
+        title: "Samskara Release & Boundary Protection",
+        items: [
+          "Helping individuals process suppressed emotional blocks",
+          "Establishing energetic shields to avoid personal exhaustion",
+          "Ethical framework & community wellness leadership"
+        ]
+      }
+    ],
+    benefits: [
+      "Practitioner certification as a Remote Walks Mental Wellness Assistant",
+      "Mastery over emotional first-aid protocols for family, friends, and colleagues",
+      "Deep capacity for compassionate, non-judgmental active listening",
+      "Strong personal boundaries that prevent caregiver burnout"
+    ],
     days: [
       {
         dayNum: 1,
-        title: "The Ground of Silence",
-        duration: "12 mins",
-        sanskrit: "भूमिका (Bhumika)",
-        focus: "Establishing physical and mental stillness",
-        description: "Let go of all control. Settle into the natural state of physical stillness and observe the mind like passing clouds.",
-        guideline: "Sit upright. Close your eyes. Softly anchor your attention on the quiet rise and fall of your abdomen.",
-        mantra: "Om Shantih Shantih Shantih"
+        title: "Principles of Non-Judgmental Witnessing",
+        duration: "15 mins",
+        sanskrit: "साक्षी भाव (Sakshi Bhava)",
+        focus: "Holding clean, compassionate space without projecting biases",
+        description: "Learn to listen with complete presence, seeing every individual as inherently whole rather than broken.",
+        guideline: "Practice silent listening without interrupting or offering immediate unsolicited solutions.",
+        mantra: "Aham Sakshi (I witness with pure compassion)"
       },
       {
         dayNum: 2,
-        title: "The Watcher on the Hill",
+        title: "De-Escalating Panic & Urgency",
         duration: "15 mins",
-        sanskrit: "साक्षी (Sakshi)",
-        focus: "Cultivating the Witness Consciousness",
-        description: "Observe thoughts, sensations, and emotions without labeling them as good or bad. Establish yourself as the quiet screen.",
-        guideline: "Whenever a thought appears, mentally note: 'A thought is arising,' and gently return to simple witnessing.",
-        mantra: "Aham Sakshi (I am the silent witness)"
+        sanskrit: "मानस मोचन (Manasa Mochana)",
+        focus: "Calming acute cognitive panic with gentle breath anchors",
+        description: "Guide individuals through grounding somatic techniques to lower heart rate and restore nervous calm.",
+        guideline: "Encourage 4-second inhales and long 6-second exhales while placing a hand over the chest.",
+        mantra: "Om Shanti (Restoring peaceful order)"
       },
       {
         dayNum: 3,
-        title: "Befriending the Breath",
-        duration: "15 mins",
-        sanskrit: "प्राण सखा (Prana Sakha)",
-        focus: "Sustaining anchor in natural breathing",
-        description: "Feel the absolute quality of breath at the tip of the nostrils. Notice the gentle pause at the top of the inhalation.",
-        guideline: "Settle your full attention at the rim of your nostrils. Trace the cool inhalation and warm exhalation.",
-        mantra: "So'Ham (I am that breath)"
+        title: "Subconscious Emotional First-Aid",
+        duration: "18 mins",
+        sanskrit: "संस्कार शोधन (Sanskara Shodhana)",
+        focus: "Safely processing suppressed emotional blocks",
+        description: "Help individuals acknowledge uncomfortable sensations in the body without fear or self-criticism.",
+        guideline: "Inhale welcoming the bodily sensation; exhale releasing the heavy story attached to it.",
+        mantra: "Om Hreem Namah (Vibrational emotional release)"
       },
       {
         dayNum: 4,
-        title: "The Space Between Thoughts",
+        title: "Establishing Safe Energetic Boundaries",
         duration: "18 mins",
-        sanskrit: "अन्तराल (Antarala)",
-        focus: "Resting in the gap of quiet reflection",
-        description: "Dive deep into the precise millisecond where one thought ends and the next has not yet arisen. Expand that gap.",
-        guideline: "Watch the space between words. Direct your gaze into the quiet dark screen of the third eye.",
-        mantra: "Om Namah Shivaya"
+        sanskrit: "कवच रक्षण (Kavacha Rakshana)",
+        focus: "Holding space without absorbing external emotional strain",
+        description: "Protect your personal energy field while supporting others, avoiding personal fatigue or burnout.",
+        guideline: "Visualize a protective shield of golden light surrounding your aura while offering counsel.",
+        mantra: "Aham Rakshitah (I am anchored and protected)"
       },
       {
         dayNum: 5,
-        title: "Dissolving Personal History",
+        title: "Integrating Daily Mental Wellness Protocols",
         duration: "20 mins",
-        sanskrit: "विलीन (Vileen)",
-        focus: "Releasing memories and expectations",
-        description: "Surrender your narrative. For twenty minutes, you have no past, no future, and no duties. You are pure existence.",
-        guideline: "Mentally repeat: 'At this moment, I need nothing, I do nothing, I am nothing.' Inhabit the immediate now.",
-        mantra: "Sat-Chit-Ananda (Truth-Consciousness-Bliss)"
-      },
-      {
-        dayNum: 6,
-        title: "Radiating Heart Consciousness",
-        duration: "18 mins",
-        sanskrit: "करुणा (Karuna)",
-        focus: "Opening the spiritual heart center",
-        description: "Direct infinite loving-kindness first to yourself, then to your loved ones, and eventually to all sentient beings across space.",
-        guideline: "Imagine a warm, golden light glowing in the center of your chest. Let it expand with every single exhalation.",
-        mantra: "Lokah Samastah Sukhino Bhavantu"
-      },
-      {
-        dayNum: 7,
-        title: "The Unbroken Natural State",
-        duration: "25 mins",
-        sanskrit: "सहज समाधि (Sahaja Samadhi)",
-        focus: "Integrating stillness into active living",
-        description: "Acknowledge that your natural state is already perfect, silent, and complete. There is nowhere to travel, only rest.",
-        guideline: "Gently open your eyes but keep the internal gaze settled. Realize that action and silence are one undivided field.",
-        mantra: "Aham Brahmasmi (I am the Infinite Essence)"
-      }
-    ]
-  },
-  {
-    id: "shadow-work",
-    title: "Shadow Work (Subconscious Integration)",
-    sanskrit: "अन्तर्च्छाया साधना (Antarchaya Sadhana)",
-    duration: "3 Days",
-    intensity: "Deep / Emotional Alchemy",
-    description: "Expose hidden patterns. Illuminate repressed fears, shame, and unrecognized desires. Bring them into loving non-dual awareness to reclaim lost mental power.",
-    category: "mastery",
-    categoryLabel: "Inner Mastery & Applied Practices",
-    target: "Sadhakas Seeking Subconscious Wholeness",
-    image: "https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&q=80&w=600",
-    days: [
-      {
-        dayNum: 1,
-        title: "Facing the Hidden Self",
-        duration: "15 mins",
-        sanskrit: "छाया दर्शन (Chhaya Darshana)",
-        focus: "Unveiling suppressed emotions with complete honesty",
-        description: "Look straight into your core insecurities. Bring deep compassion to the parts of your personality you usually hide from others.",
-        guideline: "Inhale, breathing into the area of tension in your gut. Exhale, silently welcoming your hidden self with love.",
-        mantra: "Aham Svaroopam (I am complete as I am)"
-      },
-      {
-        dayNum: 2,
-        title: "The Alchemy of Loving Acceptance",
-        duration: "15 mins",
-        sanskrit: "करुणा परिणाम (Karuna Parinama)",
-        focus: "Embracing your flaws and shadow without self-criticism",
-        description: "Let go of self-blame. Recognize that every shadow is just blocked light. Open your spiritual heart to release mental judgments.",
-        guideline: "Visualize the dark corners of your subconscious being bathed in warm, healing golden light from your heart.",
-        mantra: "Om Shanti Premaya Namah (Peace and love integrate)"
-      },
-      {
-        dayNum: 3,
-        title: "Reclaiming Your Sovereign Power",
-        duration: "18 mins",
-        sanskrit: "शक्ति समेकन (Shakti Samekana)",
-        focus: "Integrating the shadow to unlock creativity and confidence",
-        description: "Unite divided parts of the self. Step forward as a whole, fully integrated individual, walking in power.",
-        guideline: "Feel the absolute integration of your light and shadow. Stand tall, breathing with unshakeable core strength.",
-        mantra: "Shivoham Shivoham (I am pure auspicious consciousness)"
-      }
-    ]
-  },
-
-  // 3. Life & Spiritual Coach Certification
-  {
-    id: "acharya-certification",
-    title: "6-Month Acharya Life Coach Certification",
-    sanskrit: "आचार्य दीक्षा (Acharya Deeksha)",
-    duration: "4 Days",
-    intensity: "Advanced / Flagship Curriculum",
-    description: "Our 6-month flagship lineage program. Combines NLP linguistic mastery, non-dual Vedic psychology, Spinalign posture mechanics, and Shadow Work integration to train professional spiritual guides.",
-    category: "coach",
-    categoryLabel: "Life & Spiritual Coach Certification",
-    target: "Aspiring Professional Life & Spiritual Coaches",
-    image: "https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&q=80&w=600",
-    days: [
-      {
-        dayNum: 1,
-        title: "Lineage & Counseling Philosophy",
-        duration: "20 mins",
-        sanskrit: "गुरु परम्परा (Guru Parampara)",
-        focus: "Learning the non-dual paradigm of spiritual coaching",
-        description: "Understand the core philosophy of counseling: seeing every client as already perfect, silent, and whole, rather than broken.",
-        guideline: "Sit silently. Meditate on the concept of non-separateness. See your future clients as extensions of your own presence.",
-        mantra: "Om Guruve Namah (Bow to the inner teacher of all)"
-      },
-      {
-        dayNum: 2,
-        title: "Spiritual Posture & Energy Diagnostics",
-        duration: "20 mins",
-        sanskrit: "प्राण परीक्षा (Prana Pariksha)",
-        focus: "Diagnosing a client's energetic blocks via spinal posturing",
-        description: "Learn to read energetic blockages in a client's spine and breath pattern. Cultivate intuitive diagnostic listening.",
-        guideline: "Observe your breath pattern. Is it deep or shallow? Learn to recognize these indicators to offer targeted spinal sequences.",
-        mantra: "Om Sushumna-Vahini Swaha (May energy flow freely)"
-      },
-      {
-        dayNum: 3,
-        title: "Linguistic Subconscious Restructuring",
-        duration: "20 mins",
-        sanskrit: "शब्द संस्कार (Shabda Sanskara)",
-        focus: "Vedic dialogue techniques to rewrite limiting anchors",
-        description: "Master powerful counseling dialogues that gently guide clients to dismantle their own anxiety models through inquiry.",
-        guideline: "Practice active listening. Respond not with solutions, but with questions that prompt deep, quiet self-reflection.",
-        mantra: "Aham Vimuktah (I am inherently free and liberated)"
-      },
-      {
-        dayNum: 4,
-        title: "The Ethics of Sacred Transmission",
-        duration: "20 mins",
-        sanskrit: "धर्म दीक्षा (Dharma Deeksha)",
-        focus: "Upholding lineage purity and ethical parameters",
-        description: "Honor the boundary of transmission. Learn to hold clean space for others without absorbing their emotional debris.",
-        guideline: "Visualize an envelope of pure golden light guarding your aura. Hold space from a place of unattached service.",
-        mantra: "Lokah Samastah Sukhino Bhavantu"
-      }
-    ]
-  },
-
-  // 4. Practitioner / Train-the-Trainer Track
-  {
-    id: "trainer-track",
-    title: "Practitioner / Train-the-Trainer Track",
-    sanskrit: "प्रशिक्षक दीक्षा (Prashikshak Deeksha)",
-    duration: "3 Days",
-    intensity: "Advanced / Teaching Competency",
-    description: "Earn authorization to teach our corporate and applied practices. Master voice modulation, classroom energetic architecture, and posture diagnostics instruction.",
-    category: "practitioner",
-    categoryLabel: "Practitioner / Train-the-Trainer Track",
-    target: "Certified Yoga & Meditation Guides Seeking Lineage Power",
-    image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=600",
-    days: [
-      {
-        dayNum: 1,
-        title: "Space-Holding Architecture",
-        duration: "22 mins",
-        sanskrit: "सभा रक्षण (Sabha Rakshana)",
-        focus: "Managing group energy fields and classroom acoustics",
-        description: "Master the art of establishing an unshakeable sanctuary. Anchor the room's energy using your own breathing cycle.",
-        guideline: "Practice standing in the center of a space. Take 5 slow, deep breaths, expanding your focus to fill all four corners.",
-        mantra: "Om Samantaya Namah (I guard and bless this entire space)"
-      },
-      {
-        dayNum: 2,
-        title: "Somatic Diagnostic Instruction",
-        duration: "25 mins",
-        sanskrit: "क्रिया उपदेश (Kriya Upadesha)",
-        focus: "Instructing posture alignment with precise verbal cues",
-        description: "Learn to guide complex spine adjustments using only clear, calm verbal commands without physically touching.",
-        guideline: "Describe a spinal lift using sensory adjectives: 'Imagine a golden thread pulling the crown of your head to the sky.'",
-        mantra: "Om Kriya-Siddhaye Swaha (May active practices bear fruit)"
-      },
-      {
-        dayNum: 3,
-        title: "Lineage Projection & Voice Modulation",
-        duration: "25 mins",
-        sanskrit: "नाद संचरण (Nada Sancharana)",
-        focus: "Projecting healing chanting frequencies from the heart",
-        description: "Harmonize your vocal tone to release stress in listeners. Practice chanting foundational Sanskrit peace mantras with power.",
-        guideline: "Inhale fully. Vocalize the sound 'OM' in a deep, low pitch, letting the vibrational chime echo from the chest.",
-        mantra: "Om Shanti Shanti Shanti (Universal sound transmission)"
+        sanskrit: "प्रज्ञा स्थिरता (Pragya Sthirata)",
+        focus: "Building lasting daily mental wellness habits",
+        description: "Establish morning and evening self-care check-ins to maintain emotional balance and resilience.",
+        guideline: "Inhale into the third eye, exhaling down into the heart. Rest in clear, wise knowing.",
+        mantra: "Satya Swaroopoham (I am pure truth)"
       }
     ]
   }
 ];
 
-export default function ProgramsSection() {
-  const [activeCategory, setActiveCategory] = useState<string>("all");
-  const [activeProg, setActiveProg] = useState<Program | null>(null);
-  const [enrolledProgId, setEnrolledProgId] = useState<string | null>(null);
-  const [currentDayIndex, setCurrentDayIndex] = useState<number>(0);
-  const [completedDays, setCompletedDays] = useState<{ [progId: string]: number[] }>({});
+interface ProgramsSectionProps {
+  onNavigatePage?: (pageId: string) => void;
+}
+
+export default function ProgramsSection({ onNavigatePage }: ProgramsSectionProps) {
+  const [selectedProg, setSelectedProg] = useState<Program | null>(null);
+  const [activeTabCategory, setActiveTabCategory] = useState<string>("all");
+
+  // Practice player state inside detail view
+  const [activeDayIdx, setActiveDayIdx] = useState<number>(0);
+  const [isPlayingAudio, setIsPlayingAudio] = useState(false);
+  const [completedDaysMap, setCompletedDaysMap] = useState<{ [progId: string]: number[] }>({});
   
-  // Custom Certificate State
-  const [showCert, setShowCert] = useState(false);
-  const [certName, setCertName] = useState("");
-  const [certCertified, setCertCertified] = useState(false);
+  // Join Program Form Modal
+  const [showJoinModal, setShowJoinModal] = useState(false);
+  const [joinForm, setJoinForm] = useState({ name: "", email: "", phone: "", notes: "" });
+  const [joinSuccess, setJoinSuccess] = useState(false);
 
-  // Audio Play Simulation
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [currentTime, setCurrentTime] = useState(0);
+  const filteredList = activeTabCategory === "all"
+    ? FIVE_PROGRAMS
+    : FIVE_PROGRAMS.filter(p => p.category === activeTabCategory);
 
-  const filteredPrograms = activeCategory === "all"
-    ? PROGRAMS
-    : PROGRAMS.filter(p => p.category === activeCategory);
-
-  const handleEnroll = (prog: Program) => {
-    setEnrolledProgId(prog.id);
-    setCurrentDayIndex(0);
-    setIsPlaying(false);
-    setCurrentTime(0);
-    setShowCert(false);
-    setCertCertified(false);
+  const openProgramDetail = (prog: Program) => {
+    setSelectedProg(prog);
+    setActiveDayIdx(0);
+    setIsPlayingAudio(false);
+    setShowJoinModal(false);
+    setJoinSuccess(false);
   };
 
-  const togglePlay = () => {
-    setIsPlaying(!isPlaying);
+  const closeProgramDetail = () => {
+    setSelectedProg(null);
+    setIsPlayingAudio(false);
+    setShowJoinModal(false);
   };
 
-  const markDayComplete = (progId: string, dayNum: number) => {
-    const prevCompleted = completedDays[progId] || [];
-    if (!prevCompleted.includes(dayNum)) {
-      const updated = [...prevCompleted, dayNum];
-      setCompletedDays({
-        ...completedDays,
-        [progId]: updated
-      });
-      // Automatically advance day if possible
-      if (currentDayIndex < (activeProg?.days.length || 0) - 1) {
+  const handleJoinSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (joinForm.name && joinForm.email) {
+      setJoinSuccess(true);
+      setTimeout(() => {
+        setJoinSuccess(false);
+        setShowJoinModal(false);
+        setJoinForm({ name: "", email: "", phone: "", notes: "" });
+      }, 3500);
+    }
+  };
+
+  const markDayAsDone = (progId: string, dayNum: number) => {
+    const existing = completedDaysMap[progId] || [];
+    if (!existing.includes(dayNum)) {
+      const updated = [...existing, dayNum];
+      setCompletedDaysMap({ ...completedDaysMap, [progId]: updated });
+      if (selectedProg && activeDayIdx < selectedProg.days.length - 1) {
         setTimeout(() => {
-          setCurrentDayIndex((prev) => prev + 1);
-          setIsPlaying(false);
-          setCurrentTime(0);
-        }, 800);
+          setActiveDayIdx(prev => prev + 1);
+          setIsPlayingAudio(false);
+        }, 600);
       }
     }
   };
 
-  const handleResetProgram = (progId: string) => {
-    setCompletedDays({
-      ...completedDays,
-      [progId]: []
-    });
-    setCurrentDayIndex(0);
-    setIsPlaying(false);
-    setCurrentTime(0);
-    setShowCert(false);
-    setCertCertified(false);
-  };
-
   return (
-    <div id="programs-module" className="space-y-12">
+    <div id="programs-page-module" className="space-y-12">
       
-      {/* Intro Header */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-4 border-b border-sage-100">
-        <div>
-          <span className="text-xs font-mono tracking-widest text-gold-600 uppercase block mb-2">
-            Spiritual Curriculums
-          </span>
-          <h3 className="text-3xl font-serif font-bold text-sage-900 tracking-tight leading-none">
-            Sacred Pathways & Certifications
-          </h3>
-          <p className="mt-3 text-sage-600 text-sm max-w-xl leading-relaxed">
-            Four specialized, highly intensive pathways integrating somatic spinal postures, subconscious NLP reprogramming, non-dual dhyana, and professional coach credentials.
+      {/* 1. Page Header */}
+      <div className="bg-gradient-to-br from-sage-900 via-sage-950 to-sage-900 text-gold-100 rounded-3xl p-8 md:p-12 relative overflow-hidden border border-sage-800 shadow-xl">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-gold-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="relative z-10 max-w-3xl space-y-4">
+          <div className="inline-flex items-center gap-2 bg-sage-800/80 border border-gold-400/30 px-3.5 py-1.5 rounded-full text-gold-300 text-xs font-mono tracking-widest uppercase">
+            <Sparkles className="w-3.5 h-3.5 text-gold-400 animate-pulse" />
+            <span>Remote Walks • Holistic Curriculums</span>
+          </div>
+          <h2 className="text-3xl md:text-5xl font-serif font-bold tracking-tight text-white leading-tight">
+            Sacred & Executive Wellness Programs
+          </h2>
+          <p className="text-sage-300 text-sm md:text-base leading-relaxed font-sans max-w-2xl">
+            Explore our 5 core pathways crafted with soft earthy elegance. Each program provides a comprehensive syllabus addressing root causes, self-discovery, and sustainable transformation.
           </p>
-        </div>
 
-        {enrolledProgId ? (
-          <button
-            id="back-to-programs-list-btn"
-            onClick={() => {
-              setActiveProg(null);
-              setEnrolledProgId(null);
-            }}
-            className="px-5 py-2 rounded-full border border-sage-200 hover:bg-sage-50 text-xs font-semibold text-sage-700 transition-colors cursor-pointer"
-          >
-            ← View All Pathways
-          </button>
-        ) : (
-          <div className="flex flex-wrap items-center gap-1.5 bg-sage-50 p-1.5 rounded-full border border-sage-100/60 max-w-max">
+          {/* Category Filter Bar */}
+          <div className="pt-4 flex flex-wrap items-center gap-2">
             {[
-              { id: "all", label: "All Paths" },
-              { id: "corporate", label: "Corporate" },
-              { id: "mastery", label: "Inner Mastery" },
-              { id: "coach", label: "Coach Cert" },
-              { id: "practitioner", label: "Trainer Track" }
+              { id: "all", label: "All 5 Programs" },
+              { id: "foundational", label: "Foundational" },
+              { id: "corporate", label: "Corporate Unburn" },
+              { id: "somatic", label: "Spinelign" },
+              { id: "cognitive", label: "NLP Rewire" },
+              { id: "wellness", label: "Mental Wellness" }
             ].map((cat) => (
-              <button
+              <motion.button
                 key={cat.id}
-                id={`prog-category-filter-${cat.id}`}
-                onClick={() => setActiveCategory(cat.id)}
-                className={`px-3.5 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-wider transition-colors cursor-pointer ${
-                  activeCategory === cat.id 
-                    ? "bg-sage-900 text-gold-100" 
-                    : "text-sage-500 hover:text-sage-800"
+                id={`filter-prog-${cat.id}`}
+                onClick={() => setActiveTabCategory(cat.id)}
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                className={`px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-200 cursor-pointer ${
+                  activeTabCategory === cat.id
+                    ? "bg-gold-500 text-sage-950 font-bold shadow-md"
+                    : "bg-sage-800/60 text-sage-300 hover:bg-sage-800 hover:text-white border border-sage-700/50"
                 }`}
               >
                 {cat.label}
-              </button>
+              </motion.button>
             ))}
           </div>
-        )}
+        </div>
       </div>
 
-      <AnimatePresence mode="wait">
-        {!enrolledProgId ? (
-          /* SECTION A: LIST OF PROGRAMS */
-          <motion.div
-            key="programs-grid"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-8"
-          >
-            {filteredPrograms.map((prog) => {
-              const completedCount = (completedDays[prog.id] || []).length;
-              const percent = Math.round((completedCount / prog.days.length) * 100);
+      {/* 2. Responsive Grid of 5 Program Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {filteredList.map((prog) => {
+          const IconComp = prog.icon;
+          const completedCount = (completedDaysMap[prog.id] || []).length;
+          const progressPercent = Math.round((completedCount / prog.days.length) * 100);
 
-              return (
-                <div
-                  key={prog.id}
-                  id={`program-card-${prog.id}`}
-                  className="bg-white rounded-3xl overflow-hidden border border-sage-100 flex flex-col justify-between shadow-sm hover:shadow-md transition-all duration-300"
-                >
-                  <div className="relative h-48">
-                    <img
-                      src={prog.image}
-                      alt={prog.title}
-                      referrerPolicy="no-referrer"
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-sage-950/80 via-sage-950/20 to-transparent"></div>
-                    <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-[9px] font-mono font-bold text-sage-900 uppercase tracking-widest">
-                      {prog.duration}
-                    </div>
-                    <span className="absolute top-4 right-4 bg-gold-600 text-white text-[8px] font-mono font-bold px-2.5 py-1 rounded-full uppercase tracking-widest">
-                      {prog.categoryLabel}
-                    </span>
-                    <div className="absolute bottom-4 left-4 right-4">
-                      <span className="text-gold-300 text-[10px] font-mono block mb-1">
-                        {prog.sanskrit}
-                      </span>
-                      <h4 className="text-xl font-serif font-bold text-white leading-tight">
-                        {prog.title}
-                      </h4>
-                    </div>
-                  </div>
-
-                  <div className="p-6 space-y-5 flex-1 flex flex-col justify-between">
-                    <div className="space-y-3">
-                      <p className="text-xs text-sage-600 leading-relaxed">
-                        {prog.description}
-                      </p>
-
-                      <div className="flex items-center gap-1.5 text-[10px] text-sage-400 font-mono">
-                        <User className="w-3.5 h-3.5 text-gold-600 shrink-0" />
-                        <span>Target: <strong className="text-sage-600">{prog.target}</strong></span>
-                      </div>
-                    </div>
-
-                    {/* Progress indicator */}
-                    {completedCount > 0 && (
-                      <div className="space-y-1.5 bg-sage-50 p-3 rounded-2xl border border-sage-100">
-                        <div className="flex items-center justify-between text-[10px] font-mono text-sage-500">
-                          <span>Progress: {completedCount}/{prog.days.length} Days</span>
-                          <span>{percent}% Complete</span>
-                        </div>
-                        <div className="w-full h-1.5 bg-white rounded-full overflow-hidden border border-sage-100">
-                          <div
-                            className="h-full bg-gold-600 rounded-full transition-all duration-500"
-                            style={{ width: `${percent}%` }}
-                          ></div>
-                        </div>
-                      </div>
-                    )}
-
-                    <div className="flex items-center justify-between pt-4 border-t border-sage-100">
-                      <div className="flex items-center gap-1.5">
-                        <Flame className="w-4 h-4 text-gold-600" />
-                        <span className="text-[10px] font-mono uppercase tracking-widest text-sage-500 font-semibold">
-                          {prog.intensity}
-                        </span>
-                      </div>
-
-                      <button
-                        id={`enroll-btn-${prog.id}`}
-                        onClick={() => {
-                          setActiveProg(prog);
-                          handleEnroll(prog);
-                        }}
-                        className="px-5 py-2.5 rounded-full bg-sage-900 hover:bg-sage-950 text-gold-100 font-semibold text-xs tracking-wider uppercase transition-colors cursor-pointer flex items-center gap-2"
-                      >
-                        {completedCount > 0 ? "Continue Path" : "Begin Curriculum"}
-                        <ArrowRight className="w-3.5 h-3.5" />
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
-          </motion.div>
-        ) : (
-          /* SECTION B: ACTIVE COURSE PLAYER VIEW */
-          activeProg && (
+          return (
             <motion.div
-              key="active-program-view"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start"
+              key={prog.id}
+              id={`program-card-${prog.id}`}
+              whileHover={{ y: -6 }}
+              className="bg-white rounded-3xl overflow-hidden border border-sage-200/80 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group card-micro relative"
             >
-              {/* Day Selector Sidebar */}
-              <div className="lg:col-span-4 bg-white border border-sage-100 p-6 rounded-3xl space-y-4 shadow-2xs">
-                <div className="border-b border-sage-100 pb-4">
-                  <span className="text-[10px] font-mono text-gold-600 uppercase tracking-widest font-bold">
-                    Active Practice Channel
-                  </span>
-                  <h4 className="font-serif font-bold text-lg text-sage-900 leading-tight">
-                    {activeProg.title}
-                  </h4>
-                  <div className="flex items-center justify-between mt-2">
-                    <span className="text-xs bg-sage-50 text-sage-600 px-2.5 py-0.5 rounded-full font-serif font-medium">
-                      {activeProg.sanskrit}
+              {/* Card Image Banner */}
+              <div className="relative h-52 overflow-hidden bg-sage-100">
+                <img
+                  src={prog.image}
+                  alt={prog.title}
+                  referrerPolicy="no-referrer"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-sage-950/80 via-sage-950/30 to-transparent" />
+                
+                {/* Duration Badge */}
+                <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-mono font-bold text-sage-900 uppercase tracking-widest shadow-xs">
+                  {prog.duration}
+                </div>
+
+                {/* Category Label */}
+                <div className="absolute top-4 right-4 bg-sage-900/90 text-gold-300 border border-gold-400/30 text-[9px] font-mono font-bold px-3 py-1 rounded-full uppercase tracking-wider backdrop-blur-md">
+                  {prog.categoryLabel}
+                </div>
+
+                {/* Heading & Tagline Overlay */}
+                <div className="absolute bottom-4 left-4 right-4 space-y-1">
+                  <div className="flex items-center gap-2">
+                    <div className="p-1.5 rounded-lg bg-gold-500/20 text-gold-300 backdrop-blur-xs">
+                      <IconComp className="w-4 h-4" />
+                    </div>
+                    <span className="text-gold-300 text-[10px] font-mono font-medium truncate block">
+                      {prog.sanskrit}
                     </span>
-                    <button
-                      id="reset-program-btn"
-                      onClick={() => handleResetProgram(activeProg.id)}
-                      className="text-[10px] font-mono text-sage-400 hover:text-red-500 underline transition-colors cursor-pointer"
-                    >
-                      Reset Progress
-                    </button>
                   </div>
+                  <h3 className="text-xl font-serif font-bold text-white leading-tight">
+                    {prog.title}
+                  </h3>
                 </div>
-
-                {/* Days List */}
-                <div className="space-y-2 max-h-[350px] overflow-y-auto pr-1">
-                  {activeProg.days.map((day, idx) => {
-                    const isSelected = currentDayIndex === idx;
-                    const isCompleted = (completedDays[activeProg.id] || []).includes(day.dayNum);
-                    
-                    return (
-                      <button
-                        key={day.dayNum}
-                        id={`program-day-tab-${day.dayNum}`}
-                        onClick={() => {
-                          setCurrentDayIndex(idx);
-                          setIsPlaying(false);
-                          setCurrentTime(0);
-                        }}
-                        className={`w-full text-left p-3 rounded-2xl border transition-all duration-200 flex items-center justify-between group cursor-pointer ${
-                          isSelected
-                            ? "bg-sage-900 text-gold-100 border-sage-900 shadow-xs"
-                            : "bg-sage-50/40 hover:bg-sage-100/40 text-sage-800 border-sage-100"
-                        }`}
-                      >
-                        <div className="flex items-center gap-3">
-                          <div className={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-semibold ${
-                            isSelected ? "bg-sage-800 text-gold-400" : "bg-white text-sage-600 shadow-2xs"
-                          }`}>
-                            {day.dayNum}
-                          </div>
-                          <div>
-                            <h5 className="font-semibold text-xs tracking-wide leading-tight">{day.title}</h5>
-                            <span className={`text-[9px] font-mono uppercase tracking-wider block mt-0.5 ${
-                              isSelected ? "text-gold-300/80" : "text-sage-500"
-                            }`}>
-                              {day.sanskrit} • {day.duration}
-                            </span>
-                          </div>
-                        </div>
-
-                        <div>
-                          {isCompleted ? (
-                            <CheckCircle className="w-4 h-4 text-emerald-600 fill-emerald-50 shrink-0" />
-                          ) : (
-                            <ChevronRight className="w-3.5 h-3.5 opacity-50 group-hover:opacity-100" />
-                          )}
-                        </div>
-                      </button>
-                    );
-                  })}
-                </div>
-
-                {/* Unlock Certificate Button if all days completed */}
-                {(completedDays[activeProg.id] || []).length === activeProg.days.length && (
-                  <button
-                    id="trigger-certificate-btn"
-                    onClick={() => setShowCert(true)}
-                    className="w-full py-3 bg-gold-600 hover:bg-gold-700 text-white font-serif font-bold text-xs rounded-2xl flex items-center justify-center gap-2 shadow-md hover:shadow-lg transition-all animate-pulse cursor-pointer"
-                  >
-                    <Award className="w-4 h-4" />
-                    <span>Claim Graduation Certificate</span>
-                  </button>
-                )}
               </div>
 
-              {/* Central Practice Player */}
-              <div className="lg:col-span-8 bg-white border border-sage-100 rounded-3xl p-8 space-y-6 shadow-2xs">
-                
-                {/* Active Day Meta */}
-                <div className="border-b border-sage-100 pb-4 flex items-center justify-between">
-                  <div>
-                    <span className="text-[10px] font-mono text-gold-600 uppercase tracking-widest font-bold">
-                      Day {activeProg.days[currentDayIndex].dayNum} — {activeProg.days[currentDayIndex].sanskrit}
-                    </span>
-                    <h4 className="text-2xl font-serif font-bold text-sage-900 mt-1">
-                      {activeProg.days[currentDayIndex].title}
-                    </h4>
-                  </div>
-                  <div className="flex items-center gap-2 bg-sage-50 px-3 py-1.5 rounded-full text-xs text-sage-600 font-mono">
-                    <Timer className="w-3.5 h-3.5" />
-                    <span>{activeProg.days[currentDayIndex].duration} session</span>
-                  </div>
-                </div>
-
-                {/* Day Details */}
-                <div className="space-y-4">
-                  <div className="space-y-1.5">
-                    <span className="text-[9px] uppercase font-mono text-sage-400 tracking-widest block font-semibold">Focus & Purpose</span>
-                    <p className="text-xs text-sage-800 font-serif leading-relaxed">
-                      {activeProg.days[currentDayIndex].description}
+              {/* Card Body Content */}
+              <div className="p-6 space-y-5 flex-1 flex flex-col justify-between bg-white">
+                <div className="space-y-3">
+                  
+                  {/* Short Tagline */}
+                  <div className="bg-sage-50/80 border border-sage-100 p-2.5 rounded-xl">
+                    <span className="text-[10px] uppercase font-mono tracking-widest text-gold-700 font-bold block mb-0.5">Tagline</span>
+                    <p className="text-xs font-serif italic font-medium text-sage-800 leading-snug">
+                      "{prog.tagline}"
                     </p>
                   </div>
 
-                  <div className="bg-[#faf9f5] border border-sage-100 p-5 rounded-2xl space-y-2">
-                    <span className="text-[9px] uppercase font-mono text-gold-700 tracking-widest block font-bold">Practical Practice Guideline</span>
-                    <p className="text-xs text-sage-700 leading-relaxed font-sans">
-                      {activeProg.days[currentDayIndex].guideline}
-                    </p>
-                  </div>
+                  {/* Brief 1-2 Line Description */}
+                  <p className="text-xs text-sage-600 leading-relaxed font-sans line-clamp-3">
+                    {prog.description}
+                  </p>
 
-                  <div className="border-l-2 border-gold-400 pl-4 py-1 italic text-xs text-sage-800 font-serif">
-                    Mantra for contemplation: <strong>"{activeProg.days[currentDayIndex].mantra}"</strong>
+                  {/* Target Audience */}
+                  <div className="flex items-center gap-2 text-[10px] text-sage-500 font-mono pt-1">
+                    <User className="w-3.5 h-3.5 text-gold-600 shrink-0" />
+                    <span className="truncate">Target: <strong className="text-sage-700">{prog.target}</strong></span>
                   </div>
                 </div>
 
-                {/* Interactive Simulated Audio Guidance Player */}
-                <div className="bg-sage-50 rounded-2xl p-6 flex flex-col md:flex-row items-center justify-between gap-6">
-                  <div className="flex items-center gap-4">
-                    <button
-                      id="play-practice-audio-btn"
-                      onClick={togglePlay}
-                      className="w-12 h-12 rounded-full bg-sage-900 hover:bg-sage-950 text-gold-100 flex items-center justify-center shadow-md transition-colors cursor-pointer"
-                    >
-                      {isPlaying ? (
-                        <Pause className="w-5 h-5 fill-current" />
-                      ) : (
-                        <Play className="w-5 h-5 fill-current translate-x-0.5" />
-                      )}
-                    </button>
-                    <div>
-                      <span className="text-[9px] font-mono text-sage-400 uppercase tracking-widest block font-semibold">Simulated Guidance Audio</span>
-                      <h5 className="font-semibold text-xs text-sage-800">
-                        {isPlaying ? "Transmitting master voice guidance..." : "Session stands paused"}
-                      </h5>
+                {/* Progress bar if started */}
+                {completedCount > 0 && (
+                  <div className="space-y-1.5 bg-sage-50 p-2.5 rounded-xl border border-sage-100">
+                    <div className="flex items-center justify-between text-[10px] font-mono text-sage-600">
+                      <span>Progress: {completedCount}/{prog.days.length} Days</span>
+                      <span>{progressPercent}% Complete</span>
+                    </div>
+                    <div className="w-full h-1.5 bg-white rounded-full overflow-hidden border border-sage-200">
+                      <div className="h-full bg-gold-600 rounded-full transition-all duration-500" style={{ width: `${progressPercent}%` }} />
                     </div>
                   </div>
+                )}
 
-                  {/* Aesthetic Waveform */}
-                  <div className="flex items-center gap-1 h-8 flex-1 max-w-xs">
-                    {[12, 18, 32, 24, 16, 28, 42, 38, 22, 14, 26, 36, 18, 12].map((val, idx) => (
-                      <div
-                        key={idx}
-                        className={`w-1.5 rounded-full transition-all duration-300 ${
-                          isPlaying ? "bg-gold-600 animate-pulse" : "bg-sage-200"
-                        }`}
-                        style={{
-                          height: isPlaying ? `${val + Math.sin(Date.now() + idx) * 8}px` : `${val * 0.4}px`
-                        }}
-                      ></div>
-                    ))}
+                {/* Card Footer & "Learn More" Button */}
+                <div className="flex items-center justify-between pt-4 border-t border-sage-100">
+                  <div className="flex items-center gap-1.5 text-sage-500 text-[10px] font-mono">
+                    <Flame className="w-3.5 h-3.5 text-gold-600" />
+                    <span>{prog.intensity}</span>
                   </div>
+
+                  <motion.button
+                    id={`learn-more-btn-${prog.id}`}
+                    onClick={() => openProgramDetail(prog)}
+                    whileHover={{ scale: 1.04 }}
+                    whileTap={{ scale: 0.96 }}
+                    className="px-5 py-2.5 rounded-full bg-sage-900 hover:bg-sage-950 text-gold-100 font-semibold text-xs tracking-wider uppercase transition-colors cursor-pointer flex items-center gap-2 shadow-sm btn-shimmer"
+                  >
+                    <span>Learn More</span>
+                    <ArrowRight className="w-3.5 h-3.5 text-gold-400 group-hover:translate-x-1 transition-transform" />
+                  </motion.button>
+                </div>
+              </div>
+            </motion.div>
+          );
+        })}
+      </div>
+
+      {/* 3. Individual Program Detail Page Template Modal View */}
+      <AnimatePresence>
+        {selectedProg && (
+          <div className="fixed inset-0 bg-sage-950/75 backdrop-blur-md z-50 flex items-center justify-center p-3 md:p-6 overflow-y-auto">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              className="bg-white rounded-3xl max-w-4xl w-full max-h-[92vh] overflow-y-auto border border-sage-200 shadow-2xl relative p-6 md:p-10 space-y-10"
+            >
+              {/* Close Modal Button */}
+              <button
+                id="close-program-modal-btn"
+                onClick={closeProgramDetail}
+                className="absolute top-6 right-6 p-2.5 rounded-full bg-sage-100 hover:bg-sage-200 text-sage-800 transition-colors cursor-pointer z-20 shadow-xs"
+                aria-label="Close program detail view"
+              >
+                <X className="w-5 h-5" />
+              </button>
+
+              {/* ==================== 1. HERO SECTION ==================== */}
+              <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-sage-900 via-sage-950 to-sage-900 text-white p-6 md:p-10 shadow-lg border border-sage-800 space-y-4">
+                <div className="absolute top-0 right-0 w-80 h-80 bg-gold-500/10 rounded-full blur-3xl pointer-events-none" />
+                
+                <div className="flex flex-wrap items-center gap-3 relative z-10">
+                  <span className="bg-gold-500/20 text-gold-300 border border-gold-400/30 text-[10px] font-mono uppercase tracking-widest px-3 py-1 rounded-full font-bold">
+                    {selectedProg.categoryLabel}
+                  </span>
+                  <span className="text-xs font-serif italic text-sage-300">
+                    {selectedProg.sanskrit}
+                  </span>
                 </div>
 
-                {/* Day Action */}
-                <div className="pt-4 border-t border-sage-100 flex items-center justify-between">
-                  <span className="text-xs text-sage-500">
-                    Feel aligned with today's realization?
-                  </span>
-                  <button
-                    id="mark-day-complete-btn"
-                    onClick={() => markDayComplete(activeProg.id, activeProg.days[currentDayIndex].dayNum)}
-                    className="px-5 py-2.5 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs transition-colors flex items-center gap-2 cursor-pointer"
-                  >
-                    <CheckCircle className="w-4 h-4" />
-                    <span>Complete Day {activeProg.days[currentDayIndex].dayNum}</span>
-                  </button>
+                <h1 className="text-3xl md:text-5xl font-serif font-bold text-white leading-tight relative z-10">
+                  {selectedProg.title}
+                </h1>
+
+                <p className="text-gold-200 text-base md:text-lg font-serif italic leading-snug max-w-2xl relative z-10">
+                  "{selectedProg.tagline}"
+                </p>
+
+                <div className="pt-2 flex flex-wrap items-center gap-4 text-xs font-mono text-sage-300 relative z-10">
+                  <div className="flex items-center gap-1.5 bg-sage-800/80 px-3 py-1.5 rounded-lg border border-sage-700/60">
+                    <Calendar className="w-4 h-4 text-gold-400" />
+                    <span>Duration: {selectedProg.duration}</span>
+                  </div>
+                  <div className="flex items-center gap-1.5 bg-sage-800/80 px-3 py-1.5 rounded-lg border border-sage-700/60">
+                    <Monitor className="w-4 h-4 text-gold-400" />
+                    <span>Mode: {selectedProg.mode}</span>
+                  </div>
+                  <div className="flex items-center gap-1.5 bg-sage-800/80 px-3 py-1.5 rounded-lg border border-sage-700/60">
+                    <Flame className="w-4 h-4 text-gold-400" />
+                    <span>Intensity: {selectedProg.intensity}</span>
+                  </div>
                 </div>
               </div>
 
-              {/* Certificate Modal */}
-              <AnimatePresence>
-                {showCert && (
-                  <div className="fixed inset-0 bg-sage-950/50 backdrop-blur-xs z-50 flex items-center justify-center p-4">
-                    <motion.div
-                      initial={{ opacity: 0, scale: 0.95 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      exit={{ opacity: 0, scale: 0.95 }}
-                      className="bg-[#faf9f5] border-8 border-double border-gold-400 p-8 max-w-xl w-full rounded-2xl relative shadow-2xl text-center space-y-6"
-                    >
-                      <button
-                        id="close-cert-modal-btn"
-                        onClick={() => setShowCert(false)}
-                        className="absolute top-4 right-4 text-sage-500 hover:text-sage-700 font-bold text-xs cursor-pointer"
-                      >
-                        ✕ Close
-                      </button>
+              {/* ==================== 2. ABOUT THIS PROGRAM ==================== */}
+              <div className="space-y-4 bg-sage-50/60 p-6 md:p-8 rounded-2xl border border-sage-200/80">
+                <div className="flex items-center gap-2 text-gold-700 font-mono text-xs uppercase tracking-widest font-bold">
+                  <FileText className="w-4 h-4" />
+                  <span>Program Overview</span>
+                </div>
+                
+                <h2 className="text-2xl font-serif font-bold text-sage-900">
+                  About this Program
+                </h2>
 
-                      <div className="space-y-2">
-                        <span className="text-xs uppercase tracking-[0.4em] text-gold-600 font-mono block font-bold">
-                          Sanctuary Attunement Certificate
+                <p className="text-sage-700 text-sm leading-relaxed font-sans">
+                  {selectedProg.aboutText}
+                </p>
+
+                {/* Subheading "For Whom" */}
+                <div className="pt-4 border-t border-sage-200/70 space-y-2">
+                  <h3 className="text-sm font-mono uppercase tracking-wider text-sage-900 font-bold flex items-center gap-2">
+                    <Users className="w-4 h-4 text-gold-600" />
+                    <span>For Whom is this Program Intended?</span>
+                  </h3>
+                  <p className="text-xs md:text-sm text-sage-800 font-medium leading-relaxed bg-white p-4 rounded-xl border border-sage-200/80">
+                    {selectedProg.forWhom}
+                  </p>
+                </div>
+              </div>
+
+              {/* ==================== 3. SYLLABUS / PROGRAM CONTENTS ==================== */}
+              <div className="space-y-6">
+                <div className="space-y-1">
+                  <span className="text-xs font-mono text-gold-700 uppercase tracking-widest font-bold block">
+                    Curriculum Framework
+                  </span>
+                  <h2 className="text-2xl font-serif font-bold text-sage-900">
+                    Syllabus / Program Contents
+                  </h2>
+                </div>
+
+                <div className="space-y-4">
+                  {selectedProg.syllabus.map((mod, idx) => (
+                    <div
+                      key={idx}
+                      className="bg-white p-6 rounded-2xl border border-sage-200/90 shadow-xs space-y-3 transition-all hover:border-sage-300"
+                    >
+                      <div className="flex items-center gap-3">
+                        <span className="w-8 h-8 rounded-full bg-sage-900 text-gold-300 font-mono font-bold text-sm flex items-center justify-center shrink-0">
+                          {mod.moduleNumber}
                         </span>
-                        <div className="w-16 h-0.5 bg-gold-400 mx-auto my-3"></div>
+                        <h3 className="text-lg font-serif font-bold text-sage-900">
+                          {mod.title}
+                        </h3>
                       </div>
 
-                      {!certCertified ? (
-                        <div className="space-y-4 text-left max-w-sm mx-auto">
-                          <p className="text-xs text-sage-600 text-center leading-relaxed">
-                            Please provide your full spiritual or worldly name to materialize your Registered Attunement Blessing.
-                          </p>
-                          <div>
-                            <label className="block text-[10px] uppercase font-mono tracking-wider text-sage-400 mb-1.5 font-bold">
-                              Spiritual / Full Name
-                            </label>
-                            <input
-                              id="cert-name-input"
-                              type="text"
-                              value={certName}
-                              onChange={(e) => setCertName(e.target.value)}
-                              placeholder="e.g., Siddhartha Prasad"
-                              className="w-full text-xs text-sage-950 bg-white rounded-xl p-3 border border-sage-100 focus:outline-none focus:border-sage-300"
-                            />
-                          </div>
-                          <button
-                            id="cert-submit-btn"
-                            onClick={() => {
-                              if (certName.trim()) {
-                                setCertCertified(true);
-                              }
-                            }}
-                            className="w-full py-3 bg-sage-900 hover:bg-sage-950 text-gold-100 font-semibold text-xs tracking-wider uppercase rounded-xl transition-colors cursor-pointer"
-                          >
-                            Generate Attunement Blessing
-                          </button>
-                        </div>
-                      ) : (
-                        <motion.div
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          className="space-y-6"
-                        >
-                          <div className="space-y-2">
-                            <span className="text-[10px] font-mono text-sage-400 uppercase tracking-widest block">
-                              Be it known to all seeking worlds
-                            </span>
-                            <h3 className="text-2xl font-serif font-bold text-sage-900 italic">
-                              {certName}
-                            </h3>
-                            <p className="text-xs text-sage-600 max-w-md mx-auto leading-relaxed">
-                              has successfully graduated the sacred <strong>{activeProg.title}</strong> curriculum in <strong>{activeProg.categoryLabel}</strong>. Having inhabited daily non-dual stillness, vertical spinal alignments, and profound mindfulness, they hold the light of natural wisdom.
-                            </p>
-                          </div>
+                      <ul className="pl-11 space-y-2">
+                        {mod.items.map((sub, sIdx) => (
+                          <li key={sIdx} className="text-xs md:text-sm text-sage-700 flex items-start gap-2.5 leading-relaxed">
+                            <span className="w-1.5 h-1.5 rounded-full bg-gold-600 mt-2 shrink-0" />
+                            <span>{sub}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              </div>
 
-                          <div className="border-t border-b border-sage-100 py-4 max-w-xs mx-auto flex items-center justify-between text-[10px] font-mono text-sage-500">
-                            <div>
-                              <span>Cohort: 2026</span>
-                            </div>
-                            <div className="text-gold-600 font-serif font-bold tracking-widest">
-                              ॐ SATSANG
-                            </div>
-                            <div>
-                              <span>No. LW-01827734</span>
-                            </div>
-                          </div>
+              {/* ==================== 4. BENEFITS ==================== */}
+              <div className="bg-gradient-to-br from-[#f8f9f6] to-[#f2f5f1] p-6 md:p-8 rounded-2xl border border-sage-200 space-y-4">
+                <div className="flex items-center gap-2 text-gold-700 font-mono text-xs uppercase tracking-widest font-bold">
+                  <Award className="w-4 h-4 text-gold-600" />
+                  <span>Transformational Outcomes</span>
+                </div>
 
-                          <div className="bg-gold-50 border border-gold-200/40 p-4 rounded-xl text-left max-w-md mx-auto flex gap-3 items-center">
-                            <Flame className="w-5 h-5 text-gold-600 shrink-0" />
-                            <p className="text-[11px] text-sage-700 italic font-serif leading-relaxed">
-                              "May you carry this wisdom as an unmoving anchor into all your daily actions, walking as a beacon of natural grace."
-                            </p>
-                          </div>
+                <h2 className="text-2xl font-serif font-bold text-sage-900">
+                  Benefits of this Program
+                </h2>
 
-                          <button
-                            id="cert-close-btn"
-                            onClick={() => setShowCert(false)}
-                            className="px-6 py-2.5 bg-sage-900 text-gold-100 hover:bg-sage-950 text-xs font-semibold rounded-full transition-colors cursor-pointer"
-                          >
-                            Acknowledge & Save Blessing
-                          </button>
-                        </motion.div>
-                      )}
-                    </motion.div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pt-2">
+                  {selectedProg.benefits.map((b, bIdx) => (
+                    <div
+                      key={bIdx}
+                      className="bg-white p-4 rounded-xl border border-sage-200/80 flex items-start gap-3 shadow-2xs"
+                    >
+                      <CheckCircle className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                      <span className="text-xs md:text-sm text-sage-800 font-medium leading-relaxed">
+                        {b}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* ==================== 5. FEE, DURATION & MODE ==================== */}
+              <div className="space-y-3">
+                <h3 className="text-xs font-mono uppercase tracking-widest text-sage-600 font-bold">
+                  Program Investment Details
+                </h3>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  
+                  {/* Fee Box */}
+                  <div className="bg-sage-900 text-white p-5 rounded-2xl border border-sage-800 space-y-1.5 shadow-sm text-center md:text-left">
+                    <div className="flex items-center justify-center md:justify-start gap-2 text-gold-400 text-xs font-mono uppercase tracking-wider">
+                      <DollarSign className="w-4 h-4" />
+                      <span>Program Fee</span>
+                    </div>
+                    <div className="text-2xl font-serif font-bold text-white">
+                      {selectedProg.fee}
+                    </div>
+                    <p className="text-[11px] text-sage-300 font-sans">
+                      All-inclusive sanctuary tuition & lifetime material access.
+                    </p>
                   </div>
-                )}
-              </AnimatePresence>
+
+                  {/* Duration Box */}
+                  <div className="bg-sage-50 p-5 rounded-2xl border border-sage-200 space-y-1.5 text-center md:text-left">
+                    <div className="flex items-center justify-center md:justify-start gap-2 text-sage-700 text-xs font-mono uppercase tracking-wider font-bold">
+                      <Calendar className="w-4 h-4 text-gold-600" />
+                      <span>Duration</span>
+                    </div>
+                    <div className="text-xl font-serif font-bold text-sage-900">
+                      {selectedProg.duration}
+                    </div>
+                    <p className="text-[11px] text-sage-600 font-sans">
+                      Daily 15-20 min modules with flexible daily practice schedule.
+                    </p>
+                  </div>
+
+                  {/* Mode Box */}
+                  <div className="bg-sage-50 p-5 rounded-2xl border border-sage-200 space-y-1.5 text-center md:text-left">
+                    <div className="flex items-center justify-center md:justify-start gap-2 text-sage-700 text-xs font-mono uppercase tracking-wider font-bold">
+                      <Monitor className="w-4 h-4 text-gold-600" />
+                      <span>Delivery Mode</span>
+                    </div>
+                    <div className="text-lg font-serif font-bold text-sage-900">
+                      {selectedProg.mode}
+                    </div>
+                    <p className="text-[11px] text-sage-600 font-sans">
+                      Accessible from mobile or desktop anytime with live Q&A.
+                    </p>
+                  </div>
+
+                </div>
+              </div>
+
+              {/* ==================== 6. STRONG "JOIN THIS PROGRAM" CTA BUTTON ==================== */}
+              <div className="pt-4 border-t border-sage-200 flex flex-col items-center justify-center space-y-4 text-center">
+                <div className="max-w-md space-y-1">
+                  <h3 className="text-xl font-serif font-bold text-sage-900">
+                    Ready to Begin Your Transformation?
+                  </h3>
+                  <p className="text-xs text-sage-600">
+                    Join participants worldwide in unmasking inner conflicts and establishing unbroken clarity.
+                  </p>
+                </div>
+
+                <motion.button
+                  id={`join-program-cta-btn-${selectedProg.id}`}
+                  onClick={() => setShowJoinModal(true)}
+                  whileHover={{ scale: 1.05, boxShadow: "0 10px 25px -5px rgba(92,111,89,0.3)" }}
+                  whileTap={{ scale: 0.95 }}
+                  className="px-10 py-4 rounded-full bg-sage-900 hover:bg-sage-950 text-gold-100 font-bold text-sm tracking-wider uppercase transition-colors cursor-pointer flex items-center gap-3 shadow-lg btn-shimmer"
+                >
+                  <Sparkles className="w-4 h-4 text-gold-400 animate-pulse" />
+                  <span>Join this Program</span>
+                  <ArrowRight className="w-4 h-4 text-gold-400" />
+                </motion.button>
+              </div>
+
             </motion.div>
-          )
+          </div>
+        )}
+      </AnimatePresence>
+
+      {/* 4. Join Program Registration Modal */}
+      <AnimatePresence>
+        {showJoinModal && selectedProg && (
+          <div className="fixed inset-0 bg-sage-950/80 backdrop-blur-md z-[60] flex items-center justify-center p-4">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, y: 10 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 10 }}
+              className="bg-white rounded-3xl max-w-lg w-full p-6 md:p-8 border border-sage-200 shadow-2xl relative space-y-6"
+            >
+              <button
+                id="close-join-modal-btn"
+                onClick={() => setShowJoinModal(false)}
+                className="absolute top-5 right-5 p-2 rounded-full bg-sage-100 hover:bg-sage-200 text-sage-800 transition-colors cursor-pointer"
+              >
+                <X className="w-4 h-4" />
+              </button>
+
+              <div className="space-y-2 text-center">
+                <span className="text-[10px] font-mono text-gold-700 uppercase tracking-widest font-bold">
+                  Enrollment Request
+                </span>
+                <h3 className="text-2xl font-serif font-bold text-sage-900">
+                  Join "{selectedProg.title}"
+                </h3>
+                <p className="text-xs text-sage-600">
+                  Investment: <strong>{selectedProg.fee}</strong> • Mode: {selectedProg.mode}
+                </p>
+              </div>
+
+              {joinSuccess ? (
+                <div className="bg-emerald-50 border border-emerald-200 p-6 rounded-2xl text-center space-y-3">
+                  <CheckCircle className="w-10 h-10 text-emerald-600 mx-auto" />
+                  <h4 className="text-lg font-serif font-bold text-emerald-900">
+                    Welcome to the Sanctuary!
+                  </h4>
+                  <p className="text-xs text-emerald-800 leading-relaxed">
+                    Thank you, {joinForm.name}. Your enrollment request for <strong>{selectedProg.title}</strong> has been received. Our team will send your access code to <strong>{joinForm.email}</strong> shortly.
+                  </p>
+                </div>
+              ) : (
+                <form onSubmit={handleJoinSubmit} className="space-y-4">
+                  <div className="space-y-1">
+                    <label className="text-xs font-semibold text-sage-800">Full Name *</label>
+                    <input
+                      type="text"
+                      required
+                      placeholder="e.g. Maya Lin"
+                      value={joinForm.name}
+                      onChange={(e) => setJoinForm({ ...joinForm, name: e.target.value })}
+                      className="w-full px-4 py-2.5 rounded-xl border border-sage-200 text-xs text-sage-900 focus:outline-none focus:border-sage-600"
+                    />
+                  </div>
+
+                  <div className="space-y-1">
+                    <label className="text-xs font-semibold text-sage-800">Email Address *</label>
+                    <input
+                      type="email"
+                      required
+                      placeholder="e.g. maya@example.com"
+                      value={joinForm.email}
+                      onChange={(e) => setJoinForm({ ...joinForm, email: e.target.value })}
+                      className="w-full px-4 py-2.5 rounded-xl border border-sage-200 text-xs text-sage-900 focus:outline-none focus:border-sage-600"
+                    />
+                  </div>
+
+                  <div className="space-y-1">
+                    <label className="text-xs font-semibold text-sage-800">Phone Number (Optional)</label>
+                    <input
+                      type="tel"
+                      placeholder="+1 (555) 000-0000"
+                      value={joinForm.phone}
+                      onChange={(e) => setJoinForm({ ...joinForm, phone: e.target.value })}
+                      className="w-full px-4 py-2.5 rounded-xl border border-sage-200 text-xs text-sage-900 focus:outline-none focus:border-sage-600"
+                    />
+                  </div>
+
+                  <div className="space-y-1">
+                    <label className="text-xs font-semibold text-sage-800">Personal Goals / Notes</label>
+                    <textarea
+                      rows={2}
+                      placeholder="Share any specific inner conflicts, stress factors, or health goals..."
+                      value={joinForm.notes}
+                      onChange={(e) => setJoinForm({ ...joinForm, notes: e.target.value })}
+                      className="w-full px-4 py-2 rounded-xl border border-sage-200 text-xs text-sage-900 focus:outline-none focus:border-sage-600"
+                    />
+                  </div>
+
+                  <motion.button
+                    id="submit-join-form-btn"
+                    type="submit"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="w-full py-3.5 rounded-xl bg-sage-900 hover:bg-sage-950 text-gold-100 font-bold text-xs uppercase tracking-wider transition-colors cursor-pointer btn-shimmer"
+                  >
+                    Confirm & Proceed to Sanctuary Access
+                  </motion.button>
+                </form>
+              )}
+            </motion.div>
+          </div>
         )}
       </AnimatePresence>
 

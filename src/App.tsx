@@ -1296,7 +1296,7 @@ export default function App() {
               {/* ==================== C. PROGRAMS PAGE ==================== */}
               {activePage === "programs" && (
                 <div className="space-y-12">
-                  <ProgramsSection />
+                  <ProgramsSection onNavigatePage={(p) => handlePageNavigation(p as any)} />
                   <SacredGallery3D 
                     layoutType="sacred-grid" 
                     sectionTitle="Contemplative Gaze Grid" 
